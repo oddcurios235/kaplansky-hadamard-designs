@@ -1,6 +1,6 @@
 # Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem
 
-**Y. T. Miah — Research draft, 17 October 2026; revised 19 October 2026**
+**Y. T. Miah — Research preprint, 17 October 2026; revised 19 October 2026**
 
 [Paper](../main.pdf) · [Mathematical sources](SOURCES.md) · [Dependencies](DEPENDENCIES.md)
 
@@ -47,6 +47,6 @@ The checks do not construct the external large Hadamard matrices, rerun the exte
 
 ## Citation and rights
 
-Cite: Y. T. Miah, *Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem*, research draft dated 17 October 2026, revised 19 October 2026.
+Cite: Y. T. Miah, *Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem*, research preprint dated 17 October 2026, revised 19 October 2026.
 
 The manuscript, original finite datasets and explanatory documentation are licensed **CC BY 4.0**, and the original verifier `verify/verify.py` is licensed **BSD 3-Clause**, subject to the author's applicable rights. See [LICENSE.md](../LICENSE.md), [RIGHTS.md](RIGHTS.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

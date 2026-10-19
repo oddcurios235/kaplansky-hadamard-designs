@@ -1,6 +1,6 @@
 # Mathematical sources
 
-**Y. T. Miah, _Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem_. Research draft, 17 October 2026; revised 19 October 2026.**
+**Y. T. Miah, _Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem_. Research preprint, 17 October 2026; revised 19 October 2026.**
 
 This file fixes the external sources behind the paper. Keys agree with the bibliography. [DEPENDENCIES.md](DEPENDENCIES.md) describes the logical uses of these sources. Dates inside manuscripts are not assertions of first public availability.
 
