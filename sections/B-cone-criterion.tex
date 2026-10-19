@@ -1,0 +1,142 @@
+\section{The cone criterion and its geometric hypotheses}\label{app:cones}
+We give the proof of Theorem~\ref{thm:md} following Mghirbi--Douglas \cite[Sections~3--4]{MD26}. The same picture estimate has three consequences, according to what is allowed on the outside boundary. An essential sphere has no exterior boundary, so excluding its picture proves asphericity. A rooted picture has a specified path with fixed endpoints, so excluding it protects the root label. A free-boundary picture represents an arbitrary null word; bounding its inner cone length by the exterior length gives the linear area inequality and hence hyperbolicity.
+
+These are distinct geometric problems, not interchangeable versions of a spherical argument. Proposition~\ref{prop:cone-estimate} treats them through one estimate: short closures produce graph paths, interval pairings organize their boundary identifications, and planar separators isolate bounded forbidden configurations. Minimality ensures that each comparison uses distinct underlying graph edges.
+
+The short-closure, interval, separator and cone-picture arguments come from \cite[Sections~4--5]{OAI196} and \cite[Sections~5--6]{OAI197a}. The free-boundary application to these cone complexes is Mghirbi--Douglas's; related accounting for another complex appears in \cite[Theorem~3.1 and Lemma~3.8]{OAI257}. For the classical relation between diagrams, pictures, and identities among relations, see \cite[Chapter~V]{LS77} and \cite{CH82,BP93}. The separator input is \cite{LT79}.
+
+Fix a graph satisfying the pattern-free conditions preceding Theorem~\ref{thm:md}. In this appendix write $D_c,U_c,\eta_c,K_c,C_c,I_c$ for the six constants in \eqref{eq:md-constants}. They satisfy
+\begin{equation}\label{eq:cone-inequalities}
+ \frac{3D_c}{U_c}\le\frac\varepsilon{32},\qquad
+ 2\eta_cU_c\le\frac1{16},\qquad
+ 2\eta_cU_c\le\frac\varepsilon{32},\qquad
+ \frac{C_{\rm sep}}{\sqrt{K_c}}\le\eta_c.
+\end{equation}
+
+\subsection{Short closures, separators, and intervals}
+
+Long boundary paths are first closed by short additions, pairing arcs are gathered into intervals, and planar separation breaks the picture into bounded clusters. The losses at these three operations are exactly what the constants in \eqref{eq:cone-inequalities} control.
+\begin{lemma}\label{lem:short-closure}
+Every nonempty immersed path in $\Gamma$ can be extended to a cyclically immersed closed path by adding at most $D_cL$ traversals, without cancelling an original traversal.
+\end{lemma}
+\begin{proof}
+At a vertex $z$ forbid at most two incident undirected edges. Deleting them leaves minimum degree at least three, since the original minimum is five and the girth is at least three. Set $k=\ceil{\log_2|V\Gamma|}+1$. There are at least $3\cdot2^{k-1}>|V\Gamma|$ nonbacktracking walks of length $k$ from $z$. Two distinct such walks share an endpoint. Reducing their concatenation with one reversed removes only a common terminal segment, and leaves a nonempty reduced based loop of length at most $2k$, with first and last edges avoiding the forbidden edges.
+
+For a path from $a$ to $b$, choose a geodesic $R$ from $b$ to $a$, of length at most $dL$. When $R$ is nonempty, insert a based loop at $b$ avoiding the incoming path edge and first edge of $R$, and one at $a$ avoiding the last edge of $R$ and first edge of the path. The resulting concatenation is cyclically immersed. If $R$ is empty, one avoiding loop suffices. The added length is at most
+\[
+ dL+4k\le dL+4(\lambda_{\rm geo}L+2)\le D_cL.
+\]
+The auxiliary based loops need not be cyclically immersed individually; the indicated joins are the ones used.
+\end{proof}
+
+\begin{lemma}\label{lem:separator}
+A planar multigraph with $s$ vertices has a vertex set of size at most $C_{\rm sep}s/\sqrt K$ whose deletion leaves components of size at most $K$.
+\end{lemma}
+\begin{proof}
+Discard loops and repeated edges. By Lipton--Tarjan \cite[Corollary~2]{LT79}, a component of size $a$ has a separator of size at most $2\sqrt{2a}$ leaving parts of size at most $2a/3$. Apply this recursively to components larger than $K$, charging $2\sqrt2/\sqrt a$ to each of their vertices. Along the successive calls involving a vertex, component sizes decrease by at least a factor $2/3$. Summing backward from the last such size, which exceeds $K$, bounds the total charge by
+\[
+ \frac{2\sqrt2}{\sqrt K}\sum_{j\ge0}(2/3)^{j/2}
+ =\frac{C_{\rm sep}}{\sqrt K}.
+\]
+Summing over all vertices proves the estimate.
+\end{proof}
+
+\begin{lemma}[The interval lemma]\label{lem:interval}
+Let a sphere contain disjoint closed discs $D_1,\dots,D_{N_0}$ whose oriented boundaries carry nonempty cyclic words. Assume they are cyclically reduced except possibly at one marked break. Disjoint arcs in their complement pair every letter occurrence with an inverse letter. Divide the boundaries into $N'\ge N_0$ nonempty consecutive pieces, cutting at the break. Then the arcs are described by at most $6N'$ pairs of intervals, each within one piece and paired in reversed order.
+\end{lemma}
+\begin{proof}
+A regular neighborhood of discs and arcs has Euler characteristic $N_0-E$, where $E$ is the number of arcs. For each complementary region $Q$, let $\ell_Q$ count incident arc sides, equivalently boundary gaps. Additivity and double counting give
+\begin{equation}\label{eq:interval-euler}
+ \sum_Q(\ell_Q-2\chi(Q))=2N_0-4.
+\end{equation}
+No simple connectedness of complementary regions is assumed. Call a gap regular if it belongs to a disc-shaped digon whose sides are two distinct arcs. Its opposite gap is its partner. A monogon joins neighboring inverse letters and can occur only at the one break, so there are at most $M=1$ monogons. A digon using both sides of one arc has degree-one boundary gaps; there are at most $2N_0$ such gaps. Every other region is a disc with at least three sides, or a planar surface with at least two boundary components; in either case
+\[
+ \ell_Q\le3(\ell_Q-2\chi(Q)).
+\]
+Equation~\eqref{eq:interval-euler} therefore bounds the number of nonregular gaps by
+\[
+ M+2N_0+3(2N_0-4+M)\le8N_0.
+\]
+Cut these gaps, the piece boundaries, and one indexing gap on each original circle, always using the marked break when present. If an additional cut gap is regular, also cut its partner. There are at most $8N_0+2(N_0+N')\le12N'$ cuts. The cut set meets every circle and is stable under regular partners. Between cuts, following successive digons pairs an entire run with a run in reversed order. A run cannot pair with itself: its middle would be a self-paired letter or two adjacent inverse letters, and the break was cut. Thus runs pair in at most $6N'$ pairs.
+\end{proof}
+
+The lemma concerns words, not necessarily paths in $\Gamma$. In particular it applies to the exterior word of an arbitrary van Kampen disc.
+
+\subsection{Pictures over abstract cones}
+
+To use classical pictures, we first replace each cone by relator discs for a free basis of its attaching graph. The replacement is a homotopy equivalence relative to the rose. It does not require the image of an attached cone to embed in the quotient complex; fillings and surgeries are carried out in the specified abstract cone.
+Choose a spanning tree in a component $\Lambda$ of $\Gamma$. Attach discs to $\Lambda$ along the corresponding free-basis loops for its nontree edges, obtaining $Y_\Lambda$. Collapsing the tree identifies $Y_\Lambda$ with a contractible bouquet of circles individually filled by discs. Both $Y_\Lambda$ and the abstract cone on $\Lambda$ are contractible CW complexes containing $\Lambda$ as a subcomplex. Identity on $\Lambda$ extends to maps between them, whose composites are homotopic to identity relative to $\Lambda$ by cellwise extension. Replacing the attached cone by $Y_\Lambda$ therefore gives a homotopy equivalent complex relative to the rose.
+
+This reduction gives the usual picture representation: a map of a sphere, or a null-homotopy with prescribed boundary, is represented by finitely many disjoint inner discs, each factoring through one abstract cone with boundary a closed graph path, and disjoint complementary arcs pairing inverse letters. One can obtain it directly from a cellular approximation in the relator complex by taking transverse inverse images of points in relator discs and rose edges; see \cite{BP93} and \cite[Lemma~5.2]{OAI196}. Closed components of an inverse image of a rose-edge point carry no boundary letters. In the spherical case collapsing one splits the homotopy class into a sum of translates of two spherical classes; if the original class is essential, at least one is essential. Repetition removes all such components from an essential representative. The same relative construction gives disc pictures.
+
+For a free picture the sphere has an additional exterior disc reading the inverse of a fixed word $w$; its interior is formal. For a rooted picture it instead reads a specified graph path from a root, with its starting gap marked. The cone length is $H_0=\sum_i|\gamma_i|$, summed over inner boundaries. Every closed graph path of length $h$ is, in the free group on the rose, a product of at most $h$ conjugates of the fundamental-cycle relators: insert tree paths at each traversed edge and cancel successive tree paths. Therefore a free picture gives
+\begin{equation}\label{eq:area-cone-length}
+ \Area(w)\le H_0.
+\end{equation}
+
+Consider an essential spherical picture; a picture for a fixed nonempty cyclically reduced free word; or a rooted picture with prescribed, distinct graph endpoints. Minimize total graph-boundary length, then the number of inner discs. In the free case only inner length is minimized. Empty inner discs are deleted, and backtracking is tightened, never across the rooted break. Tightening preserves graph endpoints and is a homotopy in the same abstract cone. Minimality consequently makes inner boundaries nonempty and cyclically immersed, and a rooted outer path nonempty and immersed.
+
+A minimal picture cannot have an arc joining two graph-boundary occurrences of the same undirected edge. Such occurrences traverse it in opposite directions. A narrow band along the arc lifts to that same abstract edge, and the following surgeries delete the two occurrences.
+
+\emph{Two inner discs.} Boundaries $ep$ and $e^{-1}q$ merge to one boundary $pq$. The two discs and band factor through the same contractible cone, so replacement preserves the homotopy class relative to the complement.
+
+\emph{An inner disc and a rooted exterior.} The replacement $u_1eu_2\mapsto u_1qu_2$, using an inner boundary $e^{-1}q$, preserves the graph endpoints and the root break, while removing that inner disc.
+
+\emph{Two occurrences on the rooted exterior.} Write its linear boundary as $u_1eu_2e^{-1}u_3$. The exterior and band form an annulus. Retain the complementary disc containing the marked break; its boundary is $u_1u_3$ with the same endpoints. The remaining original picture supplies its null-homotopy. No filling of the discarded path is assumed.
+
+\emph{Two occurrences on one inner disc.} A boundary $epe^{-1}q$ splits into the two closed paths $p,q$. Cap both in the same abstract cone. For a rooted or free picture, retain the capped side containing the exterior. For an essential sphere, lift to the universal cover and use one lift of that contractible cone for both caps. In second homology the original class is the sum of the two capped classes, because their difference factors through the cone. Hurewicz identifies its nonzero spherical class with nonzero homology; at least one capped sphere remains essential.
+
+Every move decreases length by at least two, or removes an empty disc; subsequent tightening does not increase it. In the free case no move touches the exterior word. Thus minimal pictures are reduced: all graph paths have the stated immersion properties, and each arc between graph boundaries joins distinct underlying edges. There is at least one inner disc. Otherwise an essential sphere maps into the rose, or a nonempty reduced free/rooted word is trivial in a free group, both impossible. These arguments are in the abstract cones before passage to their quotient and require no embedding of a cone in $X$.
+
+\subsection{One estimate for spheres and both disc problems}
+
+The free boundary contributes at most its length in unpaired graph occurrences. Closures and separator deletions contribute the other losses, controlled by the chosen constants. If the exterior were too short, a surviving cluster would violate pattern-freeness. With no free exterior this excludes the spherical and rooted pictures outright.
+\begin{proposition}\label{prop:cone-estimate}
+A reduced rooted picture cannot exist. For a reduced free or spherical picture, with exterior length $\ell_\infty$ (zero for a sphere),
+\[
+ H_0\le\frac{16}{13\varepsilon}\ell_\infty.
+\]
+\end{proposition}
+\begin{proof}
+Let $H$ be the total graph-boundary length, so $H=H_0$ in the free and spherical cases and $H=H_0+|u|$ in the rooted case. There is an inner disc, hence $H_0\ge L$. Suppose the picture is rooted, or $\ell_\infty<13\varepsilon H_0/16$.
+
+Keep every graph boundary of length at most $U_cL$. Split a longer boundary of length $h$ into $\ceil{h/(U_cL)}$ consecutive segments of almost equal lengths, in linear order for a rooted path. Since $U_cL\ge6$, their lengths lie between $U_cL/3$ and $U_cL$. Close each by Lemma~\ref{lem:short-closure}, declaring its added positions unpaired. The number of pieces $N'$ and added length satisfy
+\begin{equation}\label{eq:cone-pieces}
+ H_{\rm add}\le(2D_c/U_c)H,
+ \qquad N'L\le H+L\le2H.
+\end{equation}
+All pieces are cyclically immersed and have at least $L$ original occurrences, except possibly the intact rooted path.
+
+Apply Lemma~\ref{lem:interval} to the original picture cut into these pieces; in the free case the exterior is one additional piece. There are at most $12H/L$ interval pairs. Indeed without a rooted path $N'L\le H$ and the possible extra piece contributes at most one more, while $H\ge L$; in the rooted case $N'L\le2H$. Discard all pairs touching the free exterior; they cost at most $\ell_\infty$ graph occurrences.
+
+Make a planar multigraph with one vertex per graph piece and edges the old pairing arcs between them. Planarity follows by placing piece vertices in disjoint sectors inside their original discs. Closures need not be embedded: they carry no arcs. Lemma~\ref{lem:separator} deletes at most $\eta_cN'$ pieces, leaving clusters of at most $K_c$ pieces. The deleted pieces carry at most $2\eta_cU_cH$ original occurrences. Each surviving occurrence whose partner was deleted is charged to one such deleted occurrence. Because both ends of an interval pair lie in single pieces, surviving pairs stay whole and lie within one cluster.
+
+Let $H_Z,b_Z,I_Z$ be the total length, unpaired length and number of retained interval pairs in a cluster. Equations~\eqref{eq:cone-inequalities}--\eqref{eq:cone-pieces} give
+\begin{align*}
+ \sum_ZH_Z&\ge(1-2\eta_cU_c)H\ge15H/16,\\
+ \sum_Zb_Z&\le(2D_c/U_c+2\eta_cU_c)H+\ell_\infty
+ \le\varepsilon H/16+\ell_\infty,\\
+ \sum_ZI_Z&\le12H/L.
+\end{align*}
+Clusters with $b_Z>\varepsilon H_Z$ account for total length at most $H/16+\ell_\infty/\varepsilon$; those with $I_Z>192H_Z/L$ account for at most $H/16$. The other, good clusters therefore carry total length at least
+\[
+ 13H/16-\ell_\infty/\varepsilon.
+\]
+This is positive in the free or spherical case by the assumed inequality and $H=H_0$. Every cluster then has length at least $L$. In the rooted case $\ell_\infty=0$; a cluster shorter than $L$ can only be the intact rooted path alone, of length $h<L$. As an inner disc is present, $H\ge h+L>2h$. Discarding this possible cluster costs less than $H/2$, leaving a good cluster of length at least $L$.
+
+In every case some good cluster satisfies
+\[
+ L\le H_Z\le K_c(U_c+D_c)L=C_cL,
+ \quad b_Z\le\varepsilon H_Z,
+ \quad I_Z\le192H_Z/L\le I_c.
+\]
+It has at most $K_c$ paths, with exactly the allowed closed/rooted possibilities. Its compared positions are disjoint and use distinct underlying edges. It is a forbidden pattern, a contradiction.
+\end{proof}
+
+\begin{proof}[Completion of Theorem~\ref{thm:md}]
+If $\pi_2(X)\ne0$, an essential spherical picture of least complexity is reduced, contradicting Proposition~\ref{prop:cone-estimate} with $\ell_\infty=0$. Thus $\pi_2(X)=0$. The simply connected universal cover is two-dimensional and acyclic, by Hurewicz and dimension. A first nonzero homotopy group would contradict Hurewicz, and Whitehead then makes it contractible \cite[Theorems~4.32 and~4.5]{Hat02}. Hence $X$ is aspherical.
+
+If a path from a designated root to a different vertex had trivial label, a minimal rooted picture for those fixed endpoints would be reduced, which Proposition~\ref{prop:cone-estimate} forbids. This proves root protection. For a free word, free and cyclic reductions do not increase length and conjugation preserves area. Its minimal capped picture gives \eqref{eq:area} by \eqref{eq:area-cone-length} and the same proposition.
+
+The finite complex gives a finite presentation. To exclude torsion, restrict the augmented free cellular $\Z G$-resolution of length two to a supposed cyclic subgroup $C_\ell$ of prime order. It remains free over $\Z C_\ell$, so it would give $H^j(C_\ell;\F_\ell)=0$ for $j>2$. But the cyclic periodic resolution alternates $u-1$ and $1+u+\cdots+u^{\ell-1}$; after applying $\operatorname{Hom}_{\Z C_\ell}(-,\F_\ell)$, every differential is zero. Thus $H^j(C_\ell;\F_\ell)=\F_\ell$ in every degree, a contradiction; compare \cite[Chapter~VIII]{Bro82}. Finally the linear area bound implies word-hyperbolicity by \cite[Theorem~III.H.2.9]{BH99}.
+\end{proof}

@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks,unicode,pdfauthor={Y. T. Miah},pdftitle={Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem}]{hyperref}
+\setlength{\emergencystretch}{1.5em}
+\setcounter{tocdepth}{1}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\N}{\mathbb N}
+\newcommand{\one}{\mathbf1}
+\newcommand{\ee}{\mathbf e}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\Exp}{\mathbb E}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\girth}{girth}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\PG}{PG}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\title[Hadamard designs and incidence repair]{Hadamard designs and incidence repair\\for Kaplansky's direct-finiteness problem}
+\author{Y. T. Miah}
+\date{17 October 2026; revised 19 October 2026\\[2pt]{\small\itshape Research draft}}
+\subjclass[2020]{Primary 16S34; Secondary 05B20, 05B25, 05C80, 20F67}
+\keywords{Hadamard matrix, incidence repair, group algebra, direct finiteness, signed matching, hyperbolic group}
+\begin{document}
+\begin{abstract}
+We give a finite incidence construction for one-sided inverses in group algebras of torsion-free groups in every odd prime characteristic. Projective lines supply the required intersection congruences; Hadamard blocks provide regular auxiliary incidences; and unions of concurrent lines correct inverse-letter balances exactly over the integers. The repair-only union rows have fixed multiplicities, leaving a replicated bulk of lines and Hadamard-decorated lines whose reduced-turn kernel admits a uniform spectral bound. If $p\ge5$ and a real Hadamard matrix of order $4p$ exists, a plane of order $p^3$ gives $p^6+p^3+4p$ signed letters; Du--Jiang's existence theorem gives at most $p^6+p^3+2^{10}p^{23/20}$ for $p\ge2^{23}$. In characteristic three we specify a $6654$-letter input with root degree $93$ and maximum graph degree $325$. The signed-matching and bounded-path methods of OpenAI and Ivanov, together with Mghirbi--Douglas's cone criterion, realize these data in finitely presented torsion-free word-hyperbolic groups, with a finite classifying complex of dimension at most two and witnesses $ab=1$, $ac=0$, $c\ne0$. The contribution is a quantitative refinement of the finite input to the qualitative group-algebra result of Mghirbi--Douglas.
+\end{abstract}
+\maketitle
+\tableofcontents
+\clearpage
+\input{sections/01-introduction}
+\input{sections/02-incidence}
+\input{sections/03-repair}
+\input{sections/04-reservoir}
+\input{sections/05-quantitative}
+\input{sections/06-characteristic-three}
+\input{sections/07-matchings}
+\input{sections/08-realization}
+\par\bigskip\noindent\begin{minipage}{\textwidth}
+\section*{Acknowledgement of AI assistance}
+OpenAI's GPT-6 Pro contributed substantially to the development of the constructions and mathematical arguments, the symbolic and computational investigations, and the preparation of the manuscript. The author directed the research and is responsible for the paper's content and mathematical attribution.
+\end{minipage}\par\medskip
+\appendix
+\input{sections/A-bounded-paths}
+\input{sections/B-cone-criterion}
+\input{sections/C-certificates}
+\input{sections/D-supports}
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

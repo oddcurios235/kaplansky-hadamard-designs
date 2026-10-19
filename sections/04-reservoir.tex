@@ -1,0 +1,164 @@
+\section{A fixed reservoir and uniform turn domination}\label{sec:reservoir}
+The repair identity fixes the required corrections but not the vertex populations. We place lines and Hadamard-decorated lines in the replicated bulk and keep unions in a balanced finite reservoir. In this way the arithmetic corrections remain available at every finite size without contributing to the leading turn distribution. The remaining candidate-count error is bounded independently of replication, so a strict spectral margin in the leading kernel can absorb it. Theorem~\ref{thm:finite} expresses that margin through two inequalities in an equitable quotient of the full squared-turn kernel.
+
+\begin{theorem}[Hadamard input with fixed incidence repair]\label{thm:finite}
+Let $p\ge5$ be prime, let a real Hadamard matrix of order $m_H$ divisible by $4p$ be given, and put
+\[
+ e=m_H-1,\quad h=m_H/2,\quad q=p^r\ge81,\quad
+ v=q^2+q+1,\quad f=(q+1)/v.
+\]
+Assume \eqref{eq:histogram-feasible}. Suppose a rational $r_0\ge1$ satisfies
+\begin{align}
+ R_1&=\frac{(e-1)/4+[v+e(r_0-1)]f^2}{r_0}<1,\label{eq:R1}\\
+ R_3&=\frac{v-1+e(r_0-1)}{(q+1)^2}+ef^2<1.\label{eq:R3}
+\end{align}
+Then there is admissible finite matching input with $v+e$ signed letters, root $L_0\cup E$, degree bound \eqref{eq:degree}, and primitive leading bulk and slot counts
+\begin{equation}\label{eq:core-totals}
+ N_0=(h/g)v^2,\qquad F_0=(h/g)v(q+1),\qquad g=\gcd(h,q+1).
+\end{equation}
+Only lines and decorated lines occur in the leading bulk. All union multiplicities are fixed. Positivity and finite-size turn domination hold above explicit finite thresholds determined below. The same conclusion holds at $p=3,q=81,e=11$ with the seed of Section~\ref{sec:char3}.
+\end{theorem}
+
+First note that the hypotheses imply $e<v$. Indeed \eqref{eq:R3} and $r_0\ge1$ imply
+\[
+ \frac{q}{q+1}+e\frac{(q+1)^2}{v^2}<1,
+ \quad\text{so}\quad e<\frac{v^2}{(q+1)^3}<v.
+\]
+Thus the three classes used below are well defined and the root degree bound is meaningful. Existence of the involution also follows directly from Lemma~\ref{lem:residue}.
+
+\subsection{The primitive leading distribution}
+
+Choose the ordinary line uniformly. Independently of that choice, assign probability $f/h$ to each particular auxiliary block and the remaining probability to the empty auxiliary part. Since an auxiliary letter lies in $h$ blocks, its frequency is $f$, the same as that of an ordinary letter. Clearing denominators and dividing by the common divisor gives the following integer table.
+For each line $L_x$, use
+\begin{equation}\label{eq:core-table}
+ b_0=\frac{hv-e(q+1)}g\quad\text{copies of }L_x,
+ \qquad b_1=\frac{q+1}g\quad\text{copies of each }L_x\cup H_j.
+\end{equation}
+There are no leading union copies. These are integers. Since $e/h<2$ and $v>2(q+1)$, $b_0>0$. Their sum is $N_0$. An ordinary point is on $q+1$ line classes, each containing $hv/g$ vertices. An auxiliary point is on $h$ blocks in each of $v$ line classes. Both have $F_0$ slots, proving \eqref{eq:core-totals}.
+
+This table is primitive: $\gcd(v,q+1)=1$ gives
+\[
+ \gcd(hv-e(q+1),q+1)=\gcd(h,q+1)=g,
+\]
+so $\gcd(b_0,b_1)=1$. Primitivity is only for this uniform product-distribution table, not a minimum over all finite designs. The auxiliary choice is independent of the ordinary line; its empty-part probability is $1-ef/h>0$. At most one auxiliary block is chosen.
+
+\subsection{An exactly balanced reservoir}
+
+The union coefficients in the repair can have either sign, so union types must be available on both sides even though their leading multiplicities vanish. We add a finite population with the same slot count at every letter. It supplies enough union copies for positivity without introducing a new inverse-letter imbalance. The line copies allow the ordinary slot count to be matched by auxiliary decorations.
+Let the repair coefficients be those of Proposition~\ref{prop:repair}, and put $A_*=hv-e(q+1)>0$. Choose
+\begin{equation}\label{eq:reservoir-formula}
+ r_R=h(B_*+1),\qquad
+ \ell_R=h\left(1+\ceil{\frac{e r_R k_R}{hA_*}}\right).
+\end{equation}
+Take $r_R$ undecorated union copies and $\ell_R$ line copies at every translate. The ordinary slot count is
+\begin{equation}\label{eq:reservoir-slots}
+ F_R=\ell_R(q+1)+r_Rk_R,
+ \qquad N_R=v(\ell_R+r_R).
+\end{equation}
+It is divisible by $h$. Decorate $F_R/h$ line copies by each auxiliary block. The required $eF_R/h$ decorations fit among the $v\ell_R$ line copies because
+\[
+ eF_R/h\le v\ell_R
+ \quad\Longleftrightarrow\quad
+ e r_R k_R\le\ell_R A_*.
+\]
+The ceiling in \eqref{eq:reservoir-formula} proves this. Assign consecutive decoration requests cyclically to the $v$ line indices, and at each index use the next unused line copy. No index receives more than $\ceil{eF_R/(hv)}\le\ell_R$ requests. Every auxiliary coordinate then receives $h(F_R/h)=F_R$ slots, exactly as every ordinary coordinate does. Denote the resulting nonnegative row multiplicities by $r_i$.
+
+The reservoir multiplicities and both repair arrays are now independent of replication. The repairs are offsets to the complete populations, not necessarily removals from reservoir copies alone: an undecorated line may draw on its leading copies. For $n=mN_0$ prescribe
+\begin{equation}\label{eq:affine-classes}
+\begin{array}{c|l}
+ A_m^+& mb_i+r_i-x_i\text{ normal copies, and one root of type }S_r\\
+ A_m^-& mb_i+r_i+y_i\text{ normal copies}\\
+ B_m& mb_i+r_i\text{ normal copies}.
+\end{array}
+\end{equation}
+On unions $b_i=0$, but $r_R>B_*$ makes their multiplicities strictly positive. On undecorated lines positivity holds when $mb_0>B_*$. Decorated-line repairs vanish and $b_1>0$. Thus
+\begin{equation}\label{eq:mpos}
+ m_{\rm pos}=1+\floor{B_*/b_0}
+\end{equation}
+is sufficient. A smaller directly checked reservoir or positivity threshold may be used.
+
+The slot vectors are
+\begin{align}
+ \mu_+&=(mF_0+F_R)\one-X+\one_{S_r},\nonumber\\
+ \mu_-&=(mF_0+F_R)\one+Y,\qquad
+ \mu_B=(mF_0+F_R)\one.\label{eq:pool-vectors}
+\end{align}
+Equation~\eqref{eq:exact-repair} proves the exact inverse-letter balances. The class sizes are
+\begin{equation}\label{eq:class-sizes}
+ |A_m^+|=n+N_R-\sum_i x_i+1,\quad
+ |A_m^-|=n+N_R+\sum_i y_i,\quad |B_m|=n+N_R.
+\end{equation}
+A safe common bound for class offsets and pool offsets is
+\begin{equation}\label{eq:caff}
+ C_{\rm aff}:=N_R+C_{\rm rep}.
+\end{equation}
+For pools this uses $F_R\le N_R$ and $|X(t)|\le\sum|x_i|$, $|Y(t)|\le\sum|y_i|$. In particular $|V\Gamma|\le3n+3C_{\rm aff}<4n$ when $n>3C_{\rm aff}$. Fix $r_B$ as the first undecorated $L_0$ vertex, before choosing any edges.
+
+\subsection{The leading reduced-turn kernel}
+
+A path arriving with letter $t$ and leaving with letter $u$ requires the two outgoing coordinates $\iota(t),u$ at its intermediate vertex. The leading weight is their joint frequency divided by the common one-letter frequency $f$. This normalization is what remains after the intermediate-vertex count is combined with the matching-pool denominator.
+For $u\ne\iota(t)$ define
+\begin{equation}\label{eq:wzero}
+ w_0(t,u)=\begin{cases}
+ (q+1)^{-1},&\iota(t),u\in P,\\
+ f,&\text{exactly one of }\iota(t),u\text{ belongs to }E,\\
+ 1/2,&\iota(t),u\in E,
+ \end{cases}
+ \qquad w_0(t,\iota(t))=0.
+\end{equation}
+The number of leading vertices containing the two outgoing coordinates $\iota(t),u$ is exactly $nfw_0(t,u)$. Two ordinary points lie on one line, giving joint frequency $1/v$ and conditional weight $1/(q+1)$. Ordinary and auxiliary inclusion are independent, giving joint frequency $f^2$ and conditional weight $f$. Two auxiliary points lie together in $h/2$ blocks, each selected with probability $f/h$, whereas one point lies in $h$ blocks. Their joint frequency is therefore $f/2$ and their conditional weight is $1/2$. In particular the auxiliary entry of the squared-turn kernel is $1/4$, with no additional factor of $f^2$.
+
+Let
+\begin{equation}\label{eq:coordinate-bound}
+ B_{\rm coord}=\max_{t\in T}\max\left\{
+ \sum_i|x_i|[t\in S_i],\ \sum_i|y_i|[t\in S_i]\right\},
+ \qquad E_*=F_R+B_{\rm coord}+1.
+\end{equation}
+For any two distinct coordinates, their reservoir incidence is at most $F_R$; their absolute correction incidence is at most $B_{\rm coord}$; the root costs at most one. Therefore, uniformly in all reduced turns and in all three classes,
+\begin{equation}\label{eq:finite-candidate}
+ |\{x:\iota(t),u\in S_x\}|\le nfw_0(t,u)+E_*.
+\end{equation}
+The constants $E_*$ and $C_{\rm aff}$ have different roles and need not be comparable.
+
+The reduced-turn weight at $(t,u)$ depends on the \emph{incoming coordinate} $\iota(t)$ and the outgoing coordinate $u$. Since each auxiliary letter is paired by $\iota$ with an ordinary letter, the partition relevant to rows of the kernel is not simply $P\sqcup E$. It is
+\[
+ \iota(E),\qquad E,\qquad P\setminus\iota(E).
+\]
+For $t\in\iota(E)$ the incoming coordinate is auxiliary, so its row has the auxiliary--auxiliary weights; for $t\in E$ it is one of the paired ordinary coordinates; and for the remaining $t$ it is an unpaired ordinary coordinate. Backtracking removes a different target in each case. These three classes therefore give an exact equitable quotient, and a positive class-constant vector can certify contraction on the entire signed alphabet.
+
+\begin{lemma}[Full-alphabet contraction]\label{lem:quotient}
+The equitable quotient of $w_0^{\circ2}$ on $\iota(E),E,P\setminus\iota(E)$ is
+\begin{equation}\label{eq:quotient}
+ Q=\begin{pmatrix}
+ ef^2&(e-1)/4&(v-e)f^2\\
+ (e-1)/(q+1)^2&ef^2&(v-e)/(q+1)^2\\
+ e/(q+1)^2&ef^2&(v-e-1)/(q+1)^2
+ \end{pmatrix}.
+\end{equation}
+On the vector $(r_0,1,1)$ the first and third ratios are \eqref{eq:R1}--\eqref{eq:R3}; the second is $R_3-(r_0-1)/(q+1)^2$. If $R=\max\{R_1,R_3\}<1$, then the lifted vector
+\[
+ \varphi(t)=r_0\quad(t\in\iota(E)),\qquad \varphi(t)=1\quad\text{otherwise}
+\]
+satisfies $w_0^{\circ2}\varphi\le R\varphi$.
+\end{lemma}
+\begin{proof}
+For $t\in\iota(E)$ the incoming coordinate $\iota(t)$ is auxiliary. The $v$ ordinary successors have weight $f$, and the $e-1$ nonbacktracking auxiliary successors have weight $1/2$. For $t\in E$, the incoming coordinate lies in $\iota(E)$, so exactly one target in that class is excluded. For $t\in P\setminus\iota(E)$ the excluded target lies in that same class. These observations give the three rows. The class-constant subspace is invariant, so its inequality lifts coordinatewise to the entire alphabet.
+\end{proof}
+
+The quotient bounds concern the ideal leading population. The actual population contributes at most the fixed additive error in \eqref{eq:finite-candidate}; increasing replication makes this error small relative to every positive leading candidate count. We reserve part of the strict contraction margin by setting
+\begin{equation}\label{eq:inflation}
+ \tau=(1-R)/8,\qquad \Lambda=(1+R)/2,\qquad \Theta=(1+\tau)w_0.
+\end{equation}
+Writing $u=1-R\in(0,1)$ shows
+$(1+u/8)^2(1-u)<1-u/2=\Lambda$.
+Thus $\Theta^{\circ2}\varphi<\Lambda\varphi$. Reduced values of $w_0$ lie between $1/(q+1)$ and $1/2$, and $\tau<1/8$, so $0<\Theta<1$ on reduced turns. Reversal symmetry follows from symmetry of the pair-incidence counts. Finally
+\begin{equation}\label{eq:mturn}
+ m\ge m_{\rm turn}:=\ceil{\frac{E_*(q+1)}{F_0\tau}}
+ \quad\Longrightarrow\quad
+ nfw_0(t,u)+E_*\le nf\Theta(t,u).
+\end{equation}
+Thus one kernel bounds all reduced-turn candidate counts in every class, uniformly above a single finite threshold. Pointwise convergence of frequencies alone would not provide this bound. Equations~\eqref{eq:mpos} and \eqref{eq:mturn}, together with Lemma~\ref{lem:gram}, prove Theorem~\ref{thm:finite}.
+
+\begin{remark}[Why the fixed types are retained]\label{rem:rare}
+The union vertices are present in every finite graph, and their contributions are included in \eqref{eq:finite-candidate}. Their leading frequencies may vanish because every letter pool remains linear in $n$ and every reduced leading turn is strictly positive. A new letter with zero leading pool, or a new positive turn at a zero entry of the reduced leading kernel, would not be covered by this argument. Positivity of every type's limiting frequency is not used in the realization estimates of Section~\ref{sec:matchings}.
+\end{remark}

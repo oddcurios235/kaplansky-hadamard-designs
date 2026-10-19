@@ -1,0 +1,188 @@
+\section{The multiplicity proof of bounded-path exclusion}\label{app:bp}
+We prove Theorem~\ref{thm:bp} using the multiplicity argument of \cite[Section~4; source file \texttt{patterns.tex}]{OAI197a}, with antecedents in \cite{Oll05}. There are two competing counts. Lemma~\ref{lem:image} bounds realizations of a fixed labelled image; Lemma~\ref{lem:word-decay} restricts the words that can satisfy many comparisons. A path may traverse the same edge repeatedly, so occurrences cannot simply be treated as independent edge prescriptions.
+
+The argument proceeds at the level of the injective image. Its boundedly many chains are subdivided on a common approximate grid, allowing repeated occurrences to share word variables. Comparisons then constrain words on linked blocks. Finally, a multiplicity filtration counts each image edge only at the levels at which it occurs; the sum of deterministic first-moment exponents is negative even though no single level is prescribed in advance. The model-specific reservoir and sign bookkeeping are contained in Lemmas~\ref{lem:image} and \ref{lem:word-decay}.
+
+Fix $K,C,I$. All bounded quantities and all uniform $o(L)$ terms in this appendix may depend on this triple and the fixed finite input. Splitting a cyclic comparison at indexing cuts changes the number of comparisons by a bounded amount and preserves the paired positions.
+
+\subsection{The injective image and bounded chains}
+\begin{lemma}\label{lem:cycle-rank}
+For fixed $C$, the cycle rank of any finite graph with girth at least $L$ and at most $CL$ edges is bounded independently of $L$.
+\end{lemma}
+\begin{proof}
+Delete hanging trees. Circular components contribute at most $C$. In the remaining graph suppress degree-two vertices and give each resulting edge its positive integer length. The resulting multigraph has minimum degree at least three. Let it have $r$ edges, of total recorded length at most $CL$.
+
+Start a nonbacktracking walk uniformly on the $2r$ oriented edges and choose each continuation uniformly. The uniform distribution on oriented edges is stationary: an oriented edge from a vertex $v$ has $\deg(v)-1$ possible predecessors, each contributing $1/(\deg(v)-1)$. A walk of $k$ steps therefore has expected recorded length at most $kCL/r$. At least half its probability is carried by walks of length at most $2kCL/r$. Every individual walk has probability at most $(2r)^{-1}2^{-(k-1)}$, so there are at least $r2^{k-1}$ such walks.
+
+Take $k=\ceil{\log_2(8r)}+1$. The lower bound $r2^{k-1}$ for the number of such short walks exceeds the number of ordered endpoint pairs, at most $(2r)^2$. Two distinct short walks share endpoints. Their expansions are distinct reduced paths, whose union contains a cycle: a forest has a unique reduced path between any two vertices. This cycle has length at most $4kCL/r$. Girth gives
+\[
+ r\le4C(\ceil{\log_2(8r)}+1),
+\]
+which bounds $r$ in terms of $C$. Suppression and removal of trees preserve cycle rank.
+\end{proof}
+
+Let $\Delta$ be the injective image of a putative path system, with at most $CL$ distinct edges. Mark its vertices of degree different from two and all indexed path starts and ends. Its only possible leaves are the endpoints of the one interval. If $\beta$ is its cycle rank and $c$ its number of components, then
+\[
+ \sum_{\deg z\ge3}(\deg z-2)=2\beta-2c+\#\{z:\deg z=1\}.
+\]
+Lemma~\ref{lem:cycle-rank} bounds the marked vertices and their total degree. Each component contains a marked path start. Thus $\Delta$ consists of boundedly many chains with disjoint degree-two interiors.
+
+Give each chain an orientation. Every indexed path traverses whole chains. The multiplicity $\mu_e$ of an undirected image edge is constant along a chain. Two successive uses of the same oriented edge in an immersed indexed path are separated by at least $L$: the intervening nonempty reduced closed path contains a cycle. Counting both orientations and all paths gives
+\begin{equation}\label{eq:multiplicity-bound}
+ \mu_e\le2(H/L+K)\le2(C+K),\qquad
+ \mu_*:=\max_e\mu_e\le M_*:=\ceil{2(C+K)}.
+\end{equation}
+An unlabelled pattern records the marked chain graph, orientations, lengths, sides and proper $A$-colourings, all paths as chain-traversal sequences, the comparison endpoints and directions, and the possible rooted start. All discrete counts other than lengths and endpoints are bounded; those range over $O(L)$ integers. The number of unlabelled patterns is polynomial in $L$. Nonbipartite $A$-images have no realization. A colouring costs at most two choices per connected component, hence a bounded factor.
+
+For $1\le j\le\mu_*$ let $\Delta_j$ consist of edges of multiplicity at least $j$ and their endpoints. Write $E_j,V_j$ for its edge and vertex counts. Put $k_1=1$ if an interval is present and $k_1=0$ otherwise; put $k_j=0$ for $j>1$.
+\begin{lemma}[Multiplicity incidence]\label{lem:multi-incidence}
+The levels satisfy
+\begin{equation}\label{eq:multi-incidence}
+ \sum_j E_j=H,\qquad \sum_j V_j\le H+k_1,
+ \qquad \sum_j(V_j-E_j-k_j)\le0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The first identity counts each image edge at its multiplicity levels. For a vertex $z$, let $a(z)$ count the interval endpoints there, with multiplicity. Each other traversal incidence is paired by an immersed path turn with a different half-edge. For sufficiently large $L$ there are no loops in the image. Hence
+\[
+ 2\max_{e\ni z}\mu_e\le\sum_{e\ni z}\mu_e+a(z).
+\]
+The vertex occurs at exactly $\max_{e\ni z}\mu_e$ levels. Sum over vertices, use $\sum_z a(z)=2k_1$, and then the first identity, to obtain the other two assertions. The root factor is imposed only at the first level.
+\end{proof}
+
+\subsection{A common approximate grid}
+
+Different occurrences of one underlying chain must use the same subdivision, otherwise comparisons do not define constraints on common word variables. Exact alignment may fail because the comparison intervals have different offsets. It suffices to align them up to an $o(L)$ total loss: the ensuing unmatched positions are absorbed by the same error allowance that appears in the bounded-path estimate. The simultaneous approximation below produces such a common grid.
+Put coordinates $[0,\ell]$ on each oriented chain, with edge positions at half-integers. Split comparisons at chain ends. There are boundedly many resulting maps
+\[
+ x\longmapsto \sigma x+a,\qquad \sigma\in\{1,-1\},\quad a\in\Z.
+\]
+When $\sigma=1$ the chain-oriented labels agree; when $\sigma=-1$ they are inverse. This includes the original comparison direction and both path traversal orientations.
+
+Let $r_{\rm off}\ge1$ bound the number of offsets, padding by zeros. Define
+\[
+ Q_L=\floor{L^{1/(2(r_{\rm off}+1))}},\qquad R_L=\floor{\sqrt{Q_L}}.
+\]
+Partition $[0,1)^{r_{\rm off}}$ into $Q_L^{r_{\rm off}}$ boxes. Two of the vectors of fractional parts $\bigl(\{\ell a/L\}\bigr)_a$, for $0\le\ell\le Q_L^{r_{\rm off}}$, lie in the same box. Their difference gives an integer $1\le u\le Q_L^{r_{\rm off}}$ with $\dist(ua/L,\Z)\le1/Q_L$ for every offset. Choose the least such $u$ and put
+\begin{equation}\label{eq:grid-scale}
+ s=\frac{L}{uR_L}.
+\end{equation}
+Uniformly over patterns,
+\[
+ s\ge L^{1/2+1/(4(r_{\rm off}+1))},\qquad
+ s\le L/R_L=o(L),\qquad
+ \dist(a/s,\Z)\le R_L/Q_L=o(1).
+\]
+Use as blocks the edge positions in full cells $[ks,(k+1)s)$ lying within a chain. Each block $i$ has $h_i=s+O(1)$ positions and inherits a multiplicity $\mu_i$. The total underlying end-fragment length is $O(s)$; the occurrence length is also $O(s)$ by \eqref{eq:multiplicity-bound}.
+
+Choose a uniform $\kappa_L\to0$ larger than a suitable fixed multiple of $R_L/Q_L+L^{-1/2}$. Link two full-block occurrences when one subcomparison identifies substrings of length at least $(1-\kappa_L)s$, and retain the entire substring constraint. The overlap exceeds half a block for large $L$. Disjointness of compared positions therefore makes these links a partial matching of block occurrences.
+\begin{lemma}\label{lem:grid-loss}
+If $b_*$ is the number of unmatched full-block occurrences, then
+\begin{equation}\label{eq:grid-loss}
+ sb_*\le b_0+O(s+L/s)=b_0+o(L).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Only boundedly many block occurrences lie within $3s+O(1)$ of a subcomparison endpoint or a chain end. Every other occurrence is wholly unpaired or wholly inside a single subcomparison. In the second case the grid displacement is at most $(R_L/Q_L)s$ and its partner cell is full. Reflection changes endpoint conventions by at most two positions. Thus the overlap exceeds $(1-\kappa_L)s$ and the occurrence is linked. Every other unmatched occurrence contributes at least $s-1$ unpaired positions. There are $O(L/s)$ occurrences, giving \eqref{eq:grid-loss}.
+\end{proof}
+
+Forget occurrence indices, retaining all links, to obtain a multigraph on underlying blocks. A link can be a self-link. For a link component $U$, including isolated blocks, write
+\[
+ S_U=\sum_{i\in U}\mu_i,\qquad z_U=\max_{i\in U}\mu_i,
+ \qquad b_U=\#\{\text{unmatched occurrences in }U\}.
+\]
+Then $\sum_U b_U=b_*$. The following deterministic estimate controls its word freedom.
+\begin{lemma}\label{lem:link-freedom}
+There is a uniform $\xi_L\to0$ such that:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item after the word on one block of $U$ is fixed, the number of assignments to its other blocks satisfying all links is at most $\exp(\xi_Ls|U|)$;
+\item if $U$ has a self-link, the same bound holds without fixing any initial word;
+\item if $U$ has no self-link, $2z_U\le S_U+b_U$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For (i), propagate along a spanning tree of $U$. A known block determines at least $(1-\kappa_L)s$ positions on the next one, leaving at most $\kappa_Ls+O(1)$ freely chosen letters. Ignoring additional constraints only enlarges the bound.
+
+For (ii), begin at a self-linked block. A translation constraint has nonzero displacement $a$, because a zero displacement would match occurrences of the same underlying edge, which is forbidden. Its equality graph joins positions $x$ and $x+a$ over a consecutive domain of at least $(1-\kappa_L)s$ positions. It is a forest, separately a subgraph of a line in each residue class modulo $|a|$, and has at most $\kappa_Ls+O(1)$ components. It has only $|T|^{\kappa_Ls+O(1)}$ possible initial words. A reflection self-link is impossible: the domain and image have a nonempty reflection-invariant interval of overlap, whose center forces either a self-inverse letter or two adjacent inverse letters. Both contradict a reduced word over a fixed-point-free alphabet. Now propagate as in (i).
+
+For (iii), a block of multiplicity $z_U$ has at least $z_U-b_U$ matched occurrences. Without self-links their partners are distinct occurrences of other blocks, of which there are $S_U-z_U$. Rearrangement proves the assertion. The estimates hold with $\xi_L$ a sufficiently large fixed multiple of $(\kappa_L+L^{-1/2})\log|T|$.
+\end{proof}
+
+\subsection{Bins and projections of complete assignments}
+
+We group words according to their weight so that squared-word decay becomes a bound on the number of choices in each group. A comparison may determine the word on a block that is absent at one particular multiplicity level. Counting solutions to only the comparisons visible at that level would therefore lose information. We first impose \emph{all} comparisons on complete assignments and only then project these assignments to each level. This preserves the constraints propagated from blocks outside the level.
+For each chain-oriented block word $w_i$ record the bin
+\[
+ d_i=\floor{-\log P_\Theta(w_i)}.
+\]
+By Lemma~\ref{lem:word-decay}, for all sufficiently large $L$ and uniformly in the patterns,
+\begin{equation}\label{eq:bins}
+ \gamma s/2\le d_i\le a_0s,
+ \qquad
+ \#\{w\in T^{h_i}:\floor{-\log P_\Theta(w)}=d_i\}
+ \le\exp(2d_i-\gamma s).
+\end{equation}
+Indeed any individual word has weight at most $\exp(-\gamma h_i)$, giving the first lower bound after taking the floor. A word in its bin has weight greater than $\exp(-d_i-1)$; the squared-word sum gives at most $\exp(2d_i+2-2\gamma h_i)$ words. The upper bound on $d_i$ uses $h_i-1\le s$ and the definition of $a_0$.
+
+There are $O(L/s)$ blocks and $O(s)$ bins per block. The number of enlarged patterns, including the polynomial choice of unlabelled pattern, is therefore
+\begin{equation}\label{eq:enlarged-patterns}
+ \exp\bigl(O((L/s)\log(s+2))+O(\log L)\bigr)=\exp(o(L)).
+\end{equation}
+The grid and links were deterministic functions of the unlabelled pattern, so introduce no additional choices.
+
+Fix an enlarged pattern. Let $\mathcal A$ be the finite set of complete edge-label assignments on its abstract image satisfying immersion, every comparison, and all bins. Define
+\[
+ \mathcal A_j=\{\alpha|_{\Delta_j}:\alpha\in\mathcal A\}.
+\]
+These are restrictions of complete compatible assignments, not all assignments satisfying only the constraints visible at level $j$. Let $Z_j$ count their injective realizations, imposing the prescribed root just when $k_j=1$. Any realization of the full pattern gives $Z_j\ge1$ at every level.
+
+For one member of $\mathcal A_j$, Lemma~\ref{lem:image} applies. The active chains are whole chains of the original image, so their number is bounded even if $\Delta_j$ is disconnected. Discarding all factors except turns internal to active full blocks increases the bound, since $0\le\Theta<1$. Absorbing $f^{-Q}$ gives expectation at most
+\begin{equation}\label{eq:stage-embedding}
+ n^{V_j-E_j-k_j}\exp\left(-\sum_{i:\mu_i\ge j}d_i+o(L)\right).
+\end{equation}
+The number of restricted assignments is at most
+\begin{equation}\label{eq:stage-projection}
+ |\mathcal A_j|\le
+ \exp\left(o(L)+
+ \sum_{\substack{U\text{ without self-link}\\z_U\ge j}}
+       (2\min_{i\in U}d_i-\gamma s)\right).
+\end{equation}
+For a component without a self-link, select a block with least bin in the \emph{whole} component. It may be absent from this level. Equation~\eqref{eq:bins} counts that word, and Lemma~\ref{lem:link-freedom}(i) counts its extensions. Projection cannot increase the number of complete assignments. A component with a self-link needs no anchor, by part (ii). Propagation contributes $\xi_Ls\,O(L/s)=o(L)$, and end fragments contribute $|T|^{O(s)}=\exp(o(L))$. Junction constraints and unused comparisons only reduce the count.
+
+Let $B_j$ be the product of the right sides of \eqref{eq:stage-embedding} and \eqref{eq:stage-projection}, with common uniform error bounds. First moments give
+\begin{equation}\label{eq:minimum-stages}
+ \Exp_LZ_j\le B_j,\qquad
+ \Prob_L(\text{full pattern occurs})\le\min_jB_j.
+\end{equation}
+The $B_j$ are deterministic bounds. No independence of the events $\{Z_j\ge1\}$ is asserted or needed.
+
+\subsection{Summing over multiplicity levels}
+
+An occurrence of the full pattern produces an image at every level, so any one level with a small first moment suffices. We find such a level by summing the logarithms of the deterministic bounds. The multiplicity-incidence inequality makes the total vertex exponent nonpositive, leaving the loss in word freedom to outweigh the permitted unmatched positions.
+Sum $\log B_j$ over $j$. The coefficient of $\log n$ is nonpositive by Lemma~\ref{lem:multi-incidence}. For a component $U$ without a self-link, put $d_{\min}=\min_{i\in U}d_i$. Its remaining contribution is at most
+\[
+ z_U(2d_{\min}-\gamma s)-\sum_{i\in U}\mu_id_i
+ \le(2z_U-S_U)d_{\min}-\gamma sz_U.
+\]
+If $2z_U\le S_U$, use $d_{\min}\ge\gamma s/2$ to get at most $-\gamma sS_U/2$. Otherwise use $d_{\min}\le a_0s$ and $2z_U-S_U\le b_U$ to get at most $a_0sb_U-\gamma sS_U/2$. A self-linked component has no initial-word term, and contributes at most $-\gamma sS_U/2$ directly.
+
+Full blocks account for $H-O(s)$ occurrences. Replacing $h_i$ by $s$ costs $O(L/s)$, since multiplicity is bounded. Therefore
+\[
+ s\sum_U S_U=H+o(L),\qquad s\sum_U b_U\le b_0+o(L).
+\]
+There are at most $M_*$ levels, so their uniform errors still sum to $o(L)$. We obtain
+\begin{equation}\label{eq:stage-sum}
+ \sum_{j=1}^{\mu_*}\log B_j
+ \le-\frac\gamma2 H+a_0b_0+o(L).
+\end{equation}
+Our $\varepsilon=\gamma/[32(1+a_0)]$ is fixed independently of $K,C,I$. If $b_0\le\varepsilon H$ and $H\ge L$, the right side is at most $-\gamma H/4$ for all sufficiently large $L$, uniformly over enlarged patterns. Some level satisfies
+\[
+ B_j\le\exp(-\gamma H/(4\mu_*))\le\exp(-\gamma H/(4M_*)).
+\]
+Combine \eqref{eq:minimum-stages} with \eqref{eq:enlarged-patterns}. The total forbidden-system probability is at most
+\[
+ \exp(-\gamma L/(4M_*)+o_{K,C,I}(L))\longrightarrow0.
+\]
+This proves Theorem~\ref{thm:bp}, with its stated order of quantifiers.
+
+The restriction to distinct underlying edges is essential in the self-link argument. The prescribed start of the possible interval is likewise essential in \eqref{eq:multi-incidence}: an unrooted interval would leave an uncompensated positive vertex exponent. The proof establishes neither a bound for arbitrary unrooted intervals nor a bound simultaneous over an unbounded number of path-system parameters.

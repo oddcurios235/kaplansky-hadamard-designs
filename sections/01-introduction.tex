@@ -1,0 +1,67 @@
+\section{Introduction}
+A unital ring is \emph{directly finite} if $ab=1$ forces $ba=1$. Direct finiteness of group algebras holds in characteristic zero \cite{Mon69}, and is known for many classes of groups in arbitrary characteristic, including free-by-amenable and sofic groups \cite{AOP02,ES04}. Kaplansky's direct-finiteness problem is related to, but distinct from, his zero-divisor and idempotent conjectures for torsion-free groups \cite{Kap72}. A zero divisor alone need not give a one-sided inverse. Conversely, if $ab=1$ but $ba\ne1$, then $e=ba$ is an idempotent distinct from $0$ and $1$: indeed $e^2=e$, and $e=0$ would force $a=a(ba)=0$. Thus a failure of direct finiteness also gives a counterexample to the idempotent conjecture.
+
+Mghirbi and Douglas \cite[Theorem C]{MD26} recently constructed, in every odd prime characteristic $p$, a finitely presented torsion-free word-hyperbolic group $G$ with a finite two-dimensional classifying space and elements $a,b,c\in\F_p[G]$ such that
+\begin{equation}\label{eq:headline-algebra}
+ ab=1,\qquad ac=0,\qquad c\ne0.
+\end{equation}
+Their realization builds on labelled-graph and cancellation methods of OpenAI and Ivanov. The present paper changes the \emph{finite incidence input} to that method. Its purpose is quantitative: the displayed Mghirbi--Douglas direct-finiteness construction has a signed alphabet of order $p^{10}$, whereas the constructions here achieve eventual order $p^6$. In characteristic three the signed alphabet decreases from $59306$ to $6654$ letters, though the maximum graph degree rises from $257$ to $325$. These are comparisons of the specified constructions, not claims about minimum possible alphabets.
+
+The finite construction is illuminated by the characteristic-three case, where projective-plane incidences provide explicit cancellation data. Extending the design across odd prime characteristics makes two arithmetic requirements prominent: a pairing of inverse-letter residues and exact integer balances, not merely congruences. Two affine pencils address the pairing, while Hadamard blocks provide auxiliary intersections with uniform replication statistics. The balance corrections pose a further difficulty: unions of concurrent lines repair integer coordinates, but need not have suitable leading turn weights. We therefore replicate only lines and Hadamard-decorated lines, retaining the union rows at fixed multiplicities. Exact repair then leaves the contracting leading turn distribution undisturbed. The finite input is explicit up to the terminal matching, obtained by a terminating existence-based search.
+
+\subsection{Results}
+A signed alphabet consists of oriented labels paired by a fixed-point-free involution; each inverse pair provides a generator of the initial rose. Definition~\ref{def:admissible} specifies the finite matching data, including incidence congruences, exact slot balances, and a strict reduced-turn estimate.
+
+\begin{theorem}[Quantitative finite constructions]\label{thm:headline}
+Finite input in the sense of Definition~\ref{def:admissible} exists in every odd prime characteristic. The following choices are available.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item In characteristic three, the signed alphabet has $6654$ letters, the exceptional root has degree $93$, and the maximum matching-graph degree is $325$. The primitive leading bulk is $132388347$, with a fixed reservoir of $39858$ vertices in each class.
+\item If $p\ge5$ and a real Hadamard matrix of order $4p$ exists, the ordinary plane has order $p^3$ and the signed alphabet has $p^6+p^3+4p$ letters.
+\item For every prime $p\ge2^{60}$, the parameter choice from Ghaderpour's stated Hadamard bound gives plane order $p^3$ and at most $p^6+p^3+2^{15}p^{6/5}$ signed letters.
+\item For every prime $p\ge2^{23}$, the Hadamard-existence theorem of Du and Jiang gives plane order $p^3$ and at most $p^6+p^3+2^{10}p^{23/20}$ signed letters.
+\end{enumerate}
+In \textup{(ii)--(iv)}, the maximum matching-graph degree is at most $(p+1)p^3+1$. All finite data are fixed before the replication parameter varies.
+\end{theorem}
+
+For the unconditional estimates in \textup{(iii)} and \textup{(iv)}, the required Hadamard matrices follow from Du--Jiang \cite[Theorem~3]{DJ24}, using Sylvester doubling to obtain the orders associated with Ghaderpour's parameter choice \cite[Theorem~10]{Gh15}. Part~\textup{(ii)} assumes an actual matrix of order $4p$ and does not depend on the Hadamard conjecture. The general construction appears in Theorem~\ref{thm:finite}, the quantitative specializations in Section~\ref{sec:quantitative}, and the complete characteristic-three input in Section~\ref{sec:char3}.
+
+\begin{corollary}[Group-algebra realization]\label{cor:headline}
+Each finite construction in Theorem~\ref{thm:headline} admits a realization by a finitely presented torsion-free word-hyperbolic group $G$, with a finite classifying complex of dimension at most two, satisfying \eqref{eq:headline-algebra}. It has a presentation on $|T|/2$ alphabet generators. The same witnesses work over every field of characteristic $p$; in particular $ba\ne1$ and $ba$ is an idempotent different from $0$ and $1$.
+\end{corollary}
+
+The realization is Theorem~\ref{thm:realization}. The alphabet bound is a bound on generators in the indicated presentation, not on the size of the matched graph or on collected group-algebra supports. The quantitative analysis keeps the finite input fixed while increasing the replication parameter.
+
+\subsection{Incidence, balance, and realization}
+Three requirements govern the construction, and none implies the other two. Intersection congruences among outgoing-label sets encode the algebraic cancellation. Exact \emph{integer} balances between inverse-letter slots are needed to form the graph. Finally, a path estimate must allow that graph to be chosen so its cone complex has the required geometry. Congruences alone do not supply matchings, and exact balance alone does not supply the geometric realization.
+
+The cancellation mechanism explains the first requirement. In a bipartite labelled component give vertices alternating signs $\sigma(x)$. If $g_x,h_y$ are group elements represented by paths from roots in two components, simultaneous traversal of an edge with label $t$ preserves $g_xh_y^{-1}$ while reversing $\sigma(x)$. Pairing traversals therefore gives the integer identity
+\[
+ \sum_{x,y}|S_x\cap S_y|\,\sigma(x)g_xh_y^{-1}=0,
+\]
+where $S_x$ is the set of outgoing labels at $x$. This signed cancellation, from Ivanov \cite[Lemma~2.2]{Iva26} and applied to equal components by Mghirbi--Douglas \cite[Section~7]{MD26}, is proved for the present graphs in Lemma~\ref{lem:signed}. Ordinary intersections congruent to $1$ modulo $p$ produce a zero product. A single exceptional self-intersection congruent to $0$ gives the missing unit term and hence $ab=1$; a second component gives $ac=0$. Root protection in the final group supplies $c\ne0$.
+
+Projective planes provide the congruences with little algebraic overhead. Two distinct lines meet once, and a line in $\PG(2,q)$, for $q$ a power of $p$, has $q+1\equiv1\pmod p$ points. Unions $R_x$ of $p+1$ concurrent lines retain the required intersection residues, while the integer identity
+\[
+ p\ee_x=\sum_{j=1}^{p+1}\one_{L_{x+\ell_j}}-\one_{R_x}
+\]
+permits a correction by a multiple of $p$ at a single coordinate. The projective geometry thus provides both the ordinary rows and a mechanism for exact repair.
+
+Auxiliary letters require a second incidence design. A normalized Hadamard matrix gives blocks whose intersections are multiples of $p$ and whose point frequencies and pair frequencies are uniform. Its two Gram identities have complementary uses: one preserves the modular intersection conditions, and the other gives the one-letter pools and the conditional turn weights. These weights, rather than the joint frequencies alone, determine the squared-turn contraction. Sections~\ref{sec:incidence} and \ref{sec:reservoir} make this distinction precise.
+
+Choosing which ordinary and auxiliary letters are inverses is itself an arithmetic problem. A suitable sum $w$ of ordinary line rows must satisfy $w_t+w_{\iota(t)}\equiv1\pmod p$. Two affine pencils allow us to arrange the required residue counts: at each affine point their coefficients add, so the histogram is a cyclic convolution. Their centres and common line at infinity supply controlled corrections. Once the involution is fixed, the line--union identity lifts the congruence to the exact equality
+\[
+ X+\iota Y=\one_{L_0\cup E}.
+\]
+This is the content of Section~\ref{sec:repair}; the exceptional row $L_0\cup E$ is the compact root already familiar from the Mghirbi--Douglas construction.
+
+For the probabilistic estimates, exact repair must leave the leading turn statistics intact. The leading population uses only lines and Hadamard-decorated lines. A balanced finite reservoir retains the union rows, and the integer repairs enter as fixed affine offsets. All errors in two-coordinate candidate counts are therefore bounded independently of replication. Since the leading letter pools are positive and the squared reduced-turn kernel is strictly contracting, a small fixed inflation dominates the complete finite populations once replication is large. The resulting uniform estimate is the bridge to conditioned matchings and bounded-path exclusion in Section~\ref{sec:matchings} and Appendix~\ref{app:bp}. Mghirbi--Douglas's cone criterion then provides asphericity, root protection, and hyperbolicity, as described in Section~\ref{sec:realization} and Appendix~\ref{app:cones}.
+
+\subsection{Relation to previous work}
+The group-theoretic realization is not claimed as a new general method here. OpenAI's direct-finiteness construction \cite{OAI197a}, building on its zero-divisor construction \cite{OAI196}, develops the exceptional-root assembly, conditioned switching, bounded-path and cone-picture arguments. Ivanov \cite{Iva26} develops the odd-characteristic signed mechanism and its two-colour version; Mghirbi--Douglas \cite{MD26} establish the qualitative result used above and the deterministic cone criterion. We prove the needed probability and image estimates for our different finite populations, and include the adapted bounded-path and cone arguments in the appendices.
+
+The compact exceptional root and an exact integer-lattice balancing procedure are already present in Mghirbi--Douglas \cite[Section~7.2]{MD26}. The new finite design instead combines Hadamard auxiliary blocks, a residue pairing over $\Z/p$ obtained from two pencils, coordinatewise line--union repair, and union types outside the replicated bulk. Classical ingredients include Singer's indexing of projective lines \cite{Sin38} and Paley's constructions of Hadamard matrices \cite{Pal33}; their use here yields the quantitative bounds, not new Hadamard-existence results. The source of the general existence bounds is discussed in Section~\ref{sec:quantitative}.
+
+In characteristic three, the cyclic plane of order $81$ and eleven auxiliary blocks with Hadamard parameters of order $12$ give the explicit incidence data; the two-pencil seed and fixed repair-only union rows supply the exact balances. Table~\ref{tab:char3-comparison} compares the two direct-finiteness constructions, including their degree trade-off; the $6648$-letter zero-divisor-only model in \cite[Section~6]{MD26} is not the appropriate comparison. The support restrictions of Appendix~\ref{app:supports} concern collected group-algebra coefficients rather than incidence alphabets. None of these alphabet estimates bounds the final replication required by the realization theorem.
+
+\subsection{Conventions}
+A signed alphabet $T$ has a fixed-point-free involution $\iota$. Write $\iota z(t)=z(\iota(t))$ for incidence vectors. A $T$-labelled graph is immersed when its outgoing labels at each vertex are distinct. Opposite orientations of an edge carry inverse letters. Girth counts loops and parallel pairs as cycles of lengths one and two. Length counts traversals, not distinct image edges. All graph roots are prescribed before the matching is drawn. Indexed copies of a type are distinct vertices; no injectivity of the final vertex-to-group-label map is presumed. Entrywise squaring is denoted $\circ2$. All logarithms are natural except $\log_2$. Every asymptotic estimate keeps the entire finite input fixed, including the characteristic, and varies only replication.

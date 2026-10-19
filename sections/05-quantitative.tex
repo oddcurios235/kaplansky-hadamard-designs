@@ -1,0 +1,156 @@
+\section{Plane order \texorpdfstring{$p^3$}{p-cubed} and uniform alphabet bounds}\label{sec:quantitative}
+For a given Hadamard order, the size of the projective plane is constrained in two independent ways: the residue histograms must be nonnegative, and the squared-turn kernel must contract. Theorem~\ref{thm:finite} makes both constraints explicit. A general sufficient inequality handles large auxiliary orders; at order $4p$ a sharper test vector already permits $q=p^3$.
+
+Changing the auxiliary architecture matters here. The observation after Mghirbi--Douglas's Lemma~7.8 identifies a failure of their displayed sufficient inequality at $q=p^4$ \cite{MD26}. Proposition~\ref{prop:md-obstruction} goes further for that unchanged model: its squared-turn kernel itself fails to contract. The smaller planes below therefore use a different finite input, not merely a sharper test vector for their kernel.
+
+% Keep the final proof marker with its display on this page.
+\enlargethispage{\baselineskip}
+\begin{lemma}\label{lem:large-plane}
+Let $e\ge19$, $q\ge81$, and $q\ge8(e^2+e)$. For $r_0=e+1$, the ratios in \eqref{eq:R1}--\eqref{eq:R3} satisfy
+\[
+ R_1<\frac13,\qquad R_3\le1-\frac{3}{4q}<1.
+\]
+\end{lemma}
+\begin{proof}
+Since $f=(q+1)/(q^2+q+1)<1/q$ and $vf^2=1+q/v<1+1/q$,
+\[
+ R_1<\frac{(e+3)/4+1/q+e^2/q^2}{e+1}
+ \le\frac{(e+3)/4+9/(8q)}{e+1}<\frac13.
+\]
+For the last inequality it suffices that $27/(8q)<(e-5)/4$, which follows from $q\ge81$ and $e\ge19$. Also $1/(q+1)\ge7/(8q)$, and therefore
+\[
+ R_3=1-\frac1{q+1}+\frac{e^2}{(q+1)^2}+ef^2
+ \le1-\frac7{8q}+\frac{e^2+e}{q^2}
+ \le1-\frac3{4q}.
+\]
+\end{proof}
+
+\subsection{Hadamard matrices of order $4p$}
+
+At this order the auxiliary alphabet grows linearly with $p$. A test vector adapted to that smaller alphabet gives the following direct estimate.
+\begin{theorem}\label{thm:4p}
+Let $p\ge5$ be prime. If a real Hadamard matrix of order $4p$ exists, then Theorem~\ref{thm:finite} applies with
+\[
+ e=4p-1,\qquad q=p^3,\qquad r_0=p+\frac34.
+\]
+The signed alphabet has size $p^6+p^3+4p$, the root has degree $p^3+4p$, the maximum matching-graph degree is $(p+1)p^3+1$, and the primitive leading bulk is
+\[
+ N_0=p(p^6+p^3+1)^2.
+\]
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:cyclic} gives $\|\beta\|_\infty\le e+6=4p+5\le p^2=q/p$, so both histograms are nonnegative. We verify the sharper spectral conditions directly, rather than imposing the sufficient condition of Lemma~\ref{lem:large-plane}. Here
+\[
+ e(r_0-1)=(4p-1)(p-1/4)<4p^2.
+\]
+Using $vf^2<1+1/q$ gives
+\[
+ r_0R_1<p+\frac12+\frac1{p^3}+\frac4{p^4}<p+\frac34=r_0.
+\]
+For $p\ge5$, the last two fractions are at most $1/125+4/625<1/4$. Similarly,
+\[
+ R_3<1-\frac1{p^3+1}+\frac{4p^2+4p}{p^6}<1.
+\]
+Indeed the last inequality is equivalent to $4(p+1)(p^3+1)<p^5$, and
+\[
+ \frac{4(p+1)(p^3+1)}{p^5}
+ =\frac{4(p+1)}{p^2}\left(1+\frac1{p^3}\right)
+ \le\frac{24}{25}\frac{126}{125}=\frac{3024}{3125}<1.
+\]
+Thus Theorem~\ref{thm:finite} applies. Since $h=2p$ and $\gcd(2p,p^3+1)=2$, its primitive bulk is $pv^2$. Finally $e=4p-1<pq$, so the union degree, not the root degree, is maximal.
+\end{proof}
+
+Table~\ref{tab:small-primes} records instances obtained from actual Paley matrices. The Paley type~II instances have composite auxiliary alphabet sizes; no prime of size $e$ is required. The exact matrix construction is specified in Appendix~\ref{app:certificates}. The accompanying program checks every matrix entry, both Hadamard-design Gram identities, the coefficient histograms, and the rational Perron inequalities. These finite checks are separate from the projective-plane existence theorem and the later selection of a matching.
+\begin{table}[htbp]
+\centering
+\caption{Order-$4p$ inputs with $q=p^3$. The last column counts signed letters.}\label{tab:small-primes}
+\begin{tabular}{rrrrlr}
+\toprule
+$p$&$m_H$&$e$&$q$&Hadamard construction&$|T|$\\
+\midrule
+5&20&19&125&Paley I over $\F_{19}$&15\,770\\
+7&28&27&343&Paley II over $\F_{13}$&118\,020\\
+11&44&43&1\,331&Paley I over $\F_{43}$&1\,772\,936\\
+13&52&51&2\,197&Paley II over $\F_{25}$&4\,829\,058\\
+17&68&67&4\,913&Paley I over $\F_{67}$&24\,142\,550\\
+19&76&75&6\,859&Paley II over $\F_{37}$&47\,052\,816\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The Ghaderpour parameter bound}
+
+For a uniform statement, an existence theorem must replace the assumed order-$4p$ matrix. We first retain the parameter choice arising from Ghaderpour's bound, and then use Du--Jiang's smaller orders directly. The two statements below share the same geometric construction.
+Ghaderpour's Theorem~10 states the following one-variable specialization \cite[pp.~14--15 of the preprint]{Gh15}. The logarithms in that section are to base two. For a positive integer $u>1$, there is an integer $N(u)$ with
+\[
+ N(u)\le\frac15\log_2(u-1)+14
+\]
+such that a full real orthogonal design of order and type $2^a u$ exists for every integer $a\ge N(u)$. Setting its sole variable to one gives a real Hadamard matrix of that order. Thus the endpoint of the cited theorem is a real Hadamard matrix, not merely a matrix over a signed group. Ghaderpour's proof uses the complementary-sequence estimates of Livinskyi \cite[Chapter~5]{Liv12}, following the signed-group method of Craigen \cite{Cra95}. The exact orders used below also follow directly from Du--Jiang's theorem and Sylvester doubling, as we show in the proof. This alternative avoids reliance on the older sequence estimate; Du--Jiang discuss a difficulty with one of its antecedents in \cite[p.~2, footnote~1]{DJ24}.
+
+\begin{theorem}\label{thm:ghaderpour}
+For every prime $p\ge2^{60}$, there is admissible finite input with $q=p^3$ and
+\begin{equation}\label{eq:gh-bound}
+ |T|=p^6+p^3+p2^{a_p}\le p^6+p^3+2^{15}p^{6/5},
+ \qquad a_p=14+\ceil{\tfrac15\log_2(p-1)}.
+\end{equation}
+Its maximum matching-graph degree is $(p+1)p^3+1$.
+\end{theorem}
+\begin{proof}
+First, the order $m_H=p2^{a_p}$ can be obtained without using the complementary-sequence estimate in Ghaderpour's proof. Put $t_p=6\floor{\log_2p/40}+10$. The Du--Jiang theorem \eqref{eq:dj-input} supplies a Hadamard matrix of order $p2^{t_p}$. Since $p-1\ge p/2$,
+\[
+ a_p\ge14+\tfrac15\log_2(p-1)
+ \ge\tfrac{69}{5}+\tfrac15\log_2p
+ >10+\tfrac3{20}\log_2p\ge t_p.
+\]
+Tensoring with a Sylvester matrix of order $2^{a_p-t_p}$ gives the exact required order. In particular it is divisible by $4p$, and
+\[
+ m_H\le2^{15}p(p-1)^{1/5}<2^{15}p^{6/5}.
+\]
+Put $e=m_H-1$ and $q=p^3$. Then
+\[
+ 8e(e+1)<8m_H^2<2^{33}p^{12/5}\le p^3,
+\]
+because $p^{3/5}\ge2^{36}$. Furthermore $e+6=m_H+5\le2^{16}p^{6/5}\le p^2$, since $p^{4/5}\ge2^{48}$. Hence the histograms are nonnegative. Lemma~\ref{lem:large-plane} and Theorem~\ref{thm:finite} apply with $r_0=e+1$. Now $v+e=p^6+p^3+m_H$, giving \eqref{eq:gh-bound}. Since $e<p^2$, the union degree dominates the root degree.
+\end{proof}
+
+\subsection{A refinement using Du--Jiang}
+
+The preceding proof used Sylvester doubling to reach a prescribed order. Using the Du--Jiang order without that extra doubling improves both the lower-order alphabet term and the range of characteristics.
+Du and Jiang prove that, for every positive odd integer $u$, there is a real block-circulant Hadamard matrix of order
+\begin{equation}\label{eq:dj-input}
+ u2^{6\floor{\log_2u/40}+10}.
+\end{equation}
+This is \cite[Theorem~3, p.~18]{DJ24}; the proof, including its finite complementary-sequence coverage input, is in their Section~IV, with Table~II on p.~26. We use this existence theorem, not its matrix-generation code, and no block-circulant property is required of our auxiliary design.
+
+\begin{theorem}\label{thm:du-jiang}
+For every prime $p\ge2^{23}$, there is admissible finite input with $q=p^3$ and
+\begin{equation}\label{eq:dj-bound}
+ |T|=p^6+p^3+p2^{6b_p+10}
+ \le p^6+p^3+2^{10}p^{23/20},
+ \qquad b_p=\floor{\log_2p/40}.
+\end{equation}
+Its maximum matching-graph degree is $(p+1)p^3+1$.
+\end{theorem}
+\begin{proof}
+Set $b=b_p$, $m_H=p2^{6b+10}$, and $e=m_H-1$. The order in \eqref{eq:dj-input} is divisible by $4p$. We claim
+\[
+ p\ge2^{12b+23},\qquad p\ge2^{6b+11}.
+\]
+If $b=0$, both follow from $p\ge2^{23}$. If $b\ge1$, then $p\ge2^{40b}$; the inequalities follow from $40b\ge12b+23$ and $40b\ge6b+11$. Consequently
+\[
+ 8e(e+1)<8m_H^2=p^2 2^{12b+23}\le p^3,
+ \qquad e+6=m_H+5\le p^2/2+5\le p^2.
+\]
+Histogram feasibility and Lemma~\ref{lem:large-plane} again apply. Theorem~\ref{thm:finite} gives the input at $q=p^3$. Finally $2^{6b}\le p^{3/20}$ proves \eqref{eq:dj-bound}, and $e<p^2$ gives the degree assertion.
+\end{proof}
+
+Theorem~\ref{thm:ghaderpour} retains the parameter choice suggested by Ghaderpour's stated bound, with an alternative proof of the needed orders from Du--Jiang. Theorem~\ref{thm:du-jiang} uses the latter orders directly and improves both the explicit range and the lower-order alphabet term. Neither supplies a replication parameter uniform in the characteristic.
+
+\begin{corollary}\label{cor:all-odd-input}
+Admissible finite input exists for every odd prime.
+\end{corollary}
+\begin{proof}
+For $p\ge5$, use a Hadamard matrix supplied by \eqref{eq:dj-input} and choose a sufficiently large power $q$ of $p$ so that $q\ge81$, $q\ge8(e^2+e)$, and $q/p\ge e+6$. Lemma~\ref{lem:large-plane} and Theorem~\ref{thm:finite} apply. Characteristic three is treated next.
+\end{proof}
+
+One can alternatively choose a prime $e\equiv-1\pmod{4p}$ by Dirichlet's theorem \cite{Dir37} and use a Paley matrix of order $e+1$. This recovers the auxiliary-prime route to the finite input, but with the fixed reservoir of Section~\ref{sec:reservoir}. Its relevance is an elementary explicit auxiliary design, not a better uniform bound for the least permissible prime. The matrix-existence routes above remove that arithmetic restriction.

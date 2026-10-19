@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying mathematical preprint if you use this research."
+title: "Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem"
+type: software
+authors:
+  - family-names: Miah
+    given-names: "Y. T."
+preferred-citation:
+  type: article
+  title: "Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem"
+  authors:
+    - family-names: Miah
+      given-names: "Y. T."
+  year: 2026

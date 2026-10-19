@@ -1,0 +1,141 @@
+\section{Selection, hyperbolicity, and group-algebra witnesses}\label{sec:realization}
+The construction now has the incidence congruences for the algebraic identities and the path estimates needed for realization. Three geometric conclusions remain. Asphericity gives a finite-dimensional classifying complex and hence torsion-freeness; root protection makes the second witness nonzero; a linear area bound gives hyperbolicity. Mghirbi--Douglas's deterministic criterion supplies all three from a pattern-free graph \cite[Theorem~B]{MD26}.
+
+The distinction between its three picture problems matters. Spherical pictures test asphericity, rooted pictures test paths with prescribed endpoints in the graph, and free-boundary pictures test arbitrary null words. The last case is needed for the area bound: exclusion of reduced spheres alone would not establish it. We state the parameters before choosing the one finite test used to select a matching.
+
+\subsection{The deterministic criterion}
+For $\varepsilon\in(0,1]$ and $d,\lambda_{\rm geo}\ge1$, set
+\begin{align}
+ C_{\rm sep}&=\frac{2\sqrt2}{1-\sqrt{2/3}},&
+ D_{MD}&=\ceil{d+4\lambda_{\rm geo}+8},\nonumber\\
+ U_{MD}&=\max\{3,\ceil{96D_{MD}/\varepsilon}\},&
+ \eta_{MD}&=\min\{1/(32U_{MD}),\varepsilon/(64U_{MD})\},\label{eq:md-constants}\\
+ K_{MD}&=\max\{1,\ceil{(C_{\rm sep}/\eta_{MD})^2}\},&
+ C_{MD}&=K_{MD}(U_{MD}+D_{MD}),\quad I_{MD}=\ceil{192C_{MD}}.\nonumber
+\end{align}
+A finite rooted immersed labelled graph is \emph{pattern-free} at scale $L$ when: its minimum degree is at least five and its girth is at least $L\ge3$; all component diameters are at most $dL$ and $\log_2|V\Gamma|\le\lambda_{\rm geo}L$; and it has no path system of the kind in Theorem~\ref{thm:bp} for the triple $(K_{MD},C_{MD},I_{MD})$. Both $I_{MD}$ and our $I$ count comparison \emph{pairs}, not individual interval sides.
+
+\begin{theorem}[Mghirbi--Douglas's cone criterion]\label{thm:md}
+For a pattern-free graph $\Gamma$, attach an abstract cone on every component to the rose by the label map, and call the resulting complex $X$. Then $X$ is aspherical. No path in $\Gamma$ from a designated root to a different vertex has trivial label in $G=\pi_1(X)$. With respect to the spanning-tree presentation, every word trivial in $G$ satisfies
+\begin{equation}\label{eq:area}
+ \Area(w)\le\frac{16}{13\varepsilon}|w|.
+\end{equation}
+In particular $G$ is finitely presented, torsion-free and word-hyperbolic.
+\end{theorem}
+This is \cite[Definition~3.3 and Theorem~B, pp.~9--16]{MD26}. Appendix~\ref{app:cones} records its proof and the relation to the OpenAI cone-picture and planar-extraction arguments. Linear isoperimetry implies hyperbolicity by \cite[Theorem~III.H.2.9]{BH99}. No assumption that an attached cone embeds in $X$ is made.
+
+\subsection{A single finite selection test}
+
+Bounded-path exclusion fixes $\varepsilon$ before the size parameters of a path system. We can therefore choose one triple large enough for the deterministic cone criterion and then let replication grow. No simultaneous probabilistic estimate over all triples is required.
+Using $\varepsilon$ from \eqref{eq:epsilon} and $D_0$ from \eqref{eq:diameter-constants}, choose, in this order,
+\begin{equation}\label{eq:selection-triple}
+ U=\max\{3,\ceil{96D_0/\varepsilon}\},\quad
+ \eta=\frac{\varepsilon}{64U},\quad
+ K=\ceil{(20/\eta)^2},\quad C=K(U+D_0),\quad I=\ceil{192C}.
+\end{equation}
+These are fixed before replication. Define $\mathcal E_m$ to be the set of matching tuples having girth at least $L$, all component diameters at most $d_0L$, and no forbidden path system for \eqref{eq:selection-triple}.
+
+\begin{proposition}[Hyperbolicity transfer]\label{prop:hyperbolicity}
+For every sufficiently large $m$, $\mathcal E_m$ is nonempty. If $\Gamma\in\mathcal E_m$, $L\ge3$, and $|V\Gamma|<4n$, then $\Gamma$ is pattern-free for
+\[
+ d=d_0,\qquad\lambda_{\rm geo}=2A,
+\]
+and Theorem~\ref{thm:md} applies with the same $\varepsilon$.
+\end{proposition}
+\begin{proof}
+Proposition~\ref{prop:girth} first defines the girth-conditioned law. Proposition~\ref{prop:diameter} and Theorem~\ref{thm:bp}, applied to the one fixed triple \eqref{eq:selection-triple}, show that $\Prob_L(\mathcal E_m)\to1$. Hence it is positive for all sufficiently large $m$.
+
+For any tuple as stated, minimum degree and girth are sufficient for the first pattern-free condition. The vertex-count condition follows from
+\[
+ \log_2|V\Gamma|<2+\log_2n<2+A(L+1)\le2AL,
+\]
+where the last inequality holds for $L\ge3$ and $A\ge1$. The selected diameter is $d_0L$. Finally
+\[
+ D_{MD}=d_0+8A+8\le d_0+32A=D_0,
+ \qquad C_{\rm sep}=6\sqrt2+4\sqrt3<20.
+\]
+Since $\varepsilon\le1$, the minimum defining $\eta_{MD}$ is $\varepsilon/(64U_{MD})$. Monotonicity gives successively
+\[
+ U_{MD}\le U,\quad \eta_{MD}\ge\eta,\quad
+ K_{MD}\le K,\quad C_{MD}\le C,\quad I_{MD}\le I.
+\]
+Thus every MD-forbidden system is among those excluded by our selection. Its possible rooted interval and its distinct-undirected-edge restriction are precisely the conventions of Theorem~\ref{thm:bp}; allowing cyclic intervals in our closed paths only enlarges the tested family. All three conditions of the criterion are verified.
+\end{proof}
+
+\begin{remark}[An explicit area constant]
+For Proposition~\ref{prop:char3}, \eqref{eq:epsilon} gives $\gamma=1/2000$, $a_0=82$, and $\varepsilon=1/5312000$. Thus
+\[
+ \Area(w)\le\frac{84992000}{13}|w|<6537847|w|.
+\]
+The more conservative choice $a_0=100$ instead gives $\varepsilon=1/6464000$ and the area bound \(\Area(w)\le(103424000/13)|w|<7955693|w|\). The parameter comparison in Proposition~\ref{prop:hyperbolicity} works for either choice. These are bounds for a selected presentation, not estimates of a least Dehn constant over all presentations of the group.
+\end{remark}
+
+The selection can be made algorithmic. Fix enumerations for fields, lines, type copies and roots, and lexicographic choices for every finite construction. List $m$ increasingly, and discard values which fail positivity, finite-size turn domination, $n>3C_{\rm aff}$ or $L\ge3$. Enumerate the finitely many compatible matching permutations at each remaining $m$, and test girth, component diameters and the fixed BP triple. The BP test lists finitely many graph paths of total length at most $CL$, their interval comparisons, and their labels; it does not solve a word problem in an as-yet unconstructed group. Proposition~\ref{prop:hyperbolicity} proves that some tuple passes. Choose the first. This is a terminating specification, with no practical complexity bound.
+
+\subsection{The algebraic identities}
+
+For a selected matching, the cone criterion supplies the only geometric facts needed in the cancellation calculation: closed component paths have trivial label, and the designated roots are protected. We sum over complete root components so that the simultaneous-edge operation stays within the summation sets.
+For a selected tuple let
+\begin{equation}\label{eq:cone-space}
+ X=F\cup_{\Gamma}\coprod_{\Lambda\in\pi_0(\Gamma)}\operatorname{Cone}(\Lambda),
+ \qquad G=\pi_1(X),
+\end{equation}
+where $F$ is the rose on $T/\iota$. Let $A'$ and $B'$ be the complete components of $r_A,r_B$. The label of a root-to-vertex path defines $g_x\in G$ for $x\in A'$ and $h_y\in G$ for $y\in B'$. These do not depend on the path because the cones kill the labels of every closed path. For an outgoing edge labelled $t$,
+\[
+ g_{x\cdot t}=g_xt,\qquad h_{y\cdot t}=h_yt,
+ \qquad g_{r_A}=h_{r_B}=1.
+\]
+Let $\sigma(x)=1$ on $A_m^+$ and $-1$ on $A_m^-$. Every $A$-edge reverses this sign.
+
+The sign rule has an earlier counterpart in Mineyev's signature condition \cite[Section~2.2]{Min24}; the distinction, explained in \cite[Section~10, ``Signed schemes'']{MD26}, is what is paired. A product structure pairs product terms themselves. Here we pair a multiset of darts, in which the term $g_xh_y^{-1}$ appears $|S_x\cap S_y|$ times. The integer identity cancels that multiset, and the incidence congruences convert it into the required product identity over the prime field.
+
+\begin{lemma}[Signed dart identity]\label{lem:signed}
+For complete components $U,V$, possibly equal, with path labels $g_x,h_y$ and an alternating sign $\sigma$ on $U$, one has in $\Z[G]$
+\begin{equation}\label{eq:signed-darts}
+ \sum_{x\in U,\,y\in V}|S_x\cap S_y|\sigma(x)g_xh_y^{-1}=0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+On the finite set of triples $(x,y,t)$ with $t\in S_x\cap S_y$, the map
+\[
+ (x,y,t)\longmapsto(x\cdot t,y\cdot t,\iota(t))
+\]
+is a fixed-point-free involution. It preserves $g_xh_y^{-1}$ and reverses $\sigma(x)$. Summing the paired terms proves \eqref{eq:signed-darts}. This is the signed simultaneous-step mechanism of \cite[Lemma~2.2]{Iva26}, used here also with $U=V$ as in \cite[Section~7]{MD26}; the exceptional-root assembly comes from \cite[Proposition~2.1]{OAI197a}.
+\end{proof}
+
+\begin{theorem}[Realization of the finite constructions]\label{thm:realization}
+Each input constructed in Theorem~\ref{thm:finite} or Proposition~\ref{prop:char3} has a selected realization for which $G$ is finitely presented, torsion-free, and word-hyperbolic, with a finite classifying complex of dimension at most two. Define
+\begin{equation}\label{eq:witnesses}
+ a=\sum_{x\in A'}\sigma(x)g_x,
+ \qquad b=\sum_{x\in A'}g_x^{-1},
+ \qquad c=\sum_{y\in B'}h_y^{-1}
+ \quad\text{in }\F_p[G].
+\end{equation}
+Then $ab=1$, $ac=0$, $c\ne0$, and $ba\ne1$. The group admits a presentation on $|T|/2$ alphabet generators satisfying \eqref{eq:area}.
+\end{theorem}
+\begin{proof}
+The probabilistic estimates and Proposition~\ref{prop:hyperbolicity} give a tuple to which Theorem~\ref{thm:md} applies. Thus \eqref{eq:cone-space} is a finite aspherical complex, the two roots are protected, and the group has all the asserted geometric properties.
+
+Apply \eqref{eq:signed-darts} to $A'\times A'$. The incidence congruences are
+\[
+ |S_x\cap S_z|\equiv1-[x=z=r_A]\pmod p.
+\]
+The root has positive sign and label one. Reducing \eqref{eq:signed-darts} modulo $p$ therefore gives $0=ab-1$. No vertex of $B'$ is exceptional, so all intersections on $A'\times B'$ are one modulo $p$; the same identity gives $ac=0$. By root protection, $h_y=1$ only for $y=r_B$. Hence the coefficient of the identity in $c$ is exactly one, and $c\ne0$. If $ba=1$, then $c=b(ac)=0$, a contradiction.
+
+For the finite presentation choose a spanning tree in each component of $\Gamma$. Use as relators the labels of its fundamental cycles associated to nontree edges. The cone is homotopy equivalent relative to its attaching graph to killing that free basis by discs, so this gives the group of \eqref{eq:cone-space}. The generating alphabet is $T/\iota$, with $|T|/2$ generators. Its area convention is exactly that of Theorem~\ref{thm:md}.
+\end{proof}
+
+The algebraic identity does not require different vertices or different simultaneous-step components to represent distinct group elements. Coincident values are simply collected after their signed contributions have been summed. This is also why the support of a witness cannot be read from the number of graph vertices.
+
+A one-sided inverse with a nonzero annihilated element gives the usual ring-theoretic consequences below. The implication from a torsion-free direct-finiteness counterexample to the other Kaplansky counterexamples is noted in \cite[Section~1]{BFF24}; the explicit square-zero and unit calculations are also recorded in \cite[Lemmas~2.1--2.2]{MD26}.
+
+\begin{corollary}\label{cor:algebra}
+For each realization above and every field $K$ of characteristic $p$, the algebra $K[G]$ is neither directly finite nor stably finite. It has a nontrivial idempotent, a nonzero square-zero element, and a unit of order $p$ not of the form $\alpha g$, with $\alpha\in K^\times$ and $g\in G$. Moreover $G$ is not sofic.
+\end{corollary}
+\begin{proof}
+Put $e_0=ba$. Then $e_0^2=e_0$, $e_0\ne1$, and $ae_0b=(ab)^2=1$ shows $e_0\ne0$. Set $\nu=b(1-e_0)$. Since $(1-e_0)b=0$, we have $\nu^2=0$, while $a\nu=1-e_0\ne0$. Thus $(1+\nu)^{-1}=1-\nu$, and $(1+\nu)^k=1+k\nu$ shows its order is exactly $p$. If $1+\nu=\alpha g$ and $g\ne1$, torsion-freeness makes $1,g,g^2$ distinct, contradicting $(\alpha g-1)^2=0$. The scalar case also contradicts $\nu\ne0$.
+
+The embedding $\F_p[G]\hookrightarrow K[G]$ is injective on the group basis and preserves every identity and nonidentity. Diagonal matrices with first entries $a,b$ and remaining entries one give matrix failures in every size. Finally sofic group algebras are stably finite by \cite[Corollary~4.7 in the preprint]{ES04}. The scalar failure therefore excludes soficity. These are algebraic consequences of the witnesses, also recorded in \cite[Section~2]{MD26}, not additional finite constructions.
+\end{proof}
+
+For clarity, the number of relators in the displayed spanning-tree presentation is $|E\Gamma|-|V\Gamma|+|\pi_0\Gamma|$, whereas $|T|/2$ counts its alphabet generators. Neither is the size of an algebraic support, and neither is controlled by the alphabet estimate alone. The final replication and all probability thresholds may depend on the characteristic and on the chosen Hadamard matrix.

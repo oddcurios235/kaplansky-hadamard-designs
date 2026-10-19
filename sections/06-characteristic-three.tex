@@ -1,0 +1,142 @@
+\section{A complete characteristic-three input}\label{sec:char3}
+Characteristic three provides a small concrete instance of the whole construction. Its eleven auxiliary blocks have sizes and pair intersections that can be checked directly, and only three residue classes need to be paired. We use the cyclic plane of order $81$, a two-pencil residue seed, and fixed-multiplicity union rows outside the replicated bulk. The resulting alphabet has $6654$ signed letters. Table~\ref{tab:char3-comparison} compares this input with Mghirbi--Douglas's displayed direct-finiteness construction.
+
+\subsection{A two-pencil residue seed}
+
+Here the residue classes zero and one must differ in size by eleven, while the class two must have even size. These conditions admit a direct two-pencil seed, without the five-residue construction used for larger characteristics.
+\begin{lemma}\label{lem:char3-seed}
+Let $q=3^r\ge9$. In $\PG(2,q)$ choose distinct points $o_0,o_1$ on a line $L_\infty$. On the other $q$ lines through $o_0$ and through $o_1$, assign coefficients $0,1,2$ with respective histograms
+\[
+ F=(q/3+1,q/3-1,q/3),\qquad
+ G=(q/3-3,q/3+1,q/3+2).
+\]
+Give $L_\infty$ coefficient $2$, and let $w$ be the resulting integer sum of line indicators. The ordinary residue counts are
+\begin{equation}\label{eq:char3-hist}
+ (n_0,n_1,n_2)=(q^2/3-5,\ q^2/3+6,\ q^2/3+q).
+\end{equation}
+In particular $n_1-n_0=11$, and $n_2$ is even.
+\end{lemma}
+\begin{proof}
+The deviations from the uniform histograms are $(1,-1,0)$ and $(-3,1,2)$. Their cyclic convolution modulo three is $(-5,4,1)$. Each affine point is the intersection of exactly one line of each pencil; its value is the sum of those two coefficients. Its residue histogram is therefore $(q^2/3-5,q^2/3+4,q^2/3+1)$. At each center the coefficients sum to $1$ modulo three: the two pencil sums are $q-1$ and $q+5$, respectively, and the common line adds $2$. The other $q-1$ points of $L_\infty$ have value $2$. Adding these contributions gives \eqref{eq:char3-hist}. The last entry is even because $q^2/3$ and $q$ are odd.
+\end{proof}
+
+For the concrete instance put $q=81$, $v=6643$, $P=\Z/v$, and let $\mathcal D$ be the ordered $82$-element difference set in Appendix~\ref{app:certificates}. Its ordered nonzero differences are precisely the nonzero elements of $P$. Thus $L_x=\mathcal D+x$ gives all lines. The chosen pencils are through the points $0$ and $1$, and their common line is $L_0$. Order the line indices in each pencil increasingly, omitting $0$, and assign consecutive coefficient classes with histograms
+\[
+ F=(28,26,27),\qquad G=(24,28,29).
+\]
+Add coefficient $2$ on $L_0$. This determines $111$ nonzero line coefficients with sum $168$. Lemma~\ref{lem:char3-seed} gives residue counts $(2182,2193,2268)$.
+
+Take $E=\Z/11$ disjoint from $P$ and the blocks
+\[
+ H_j=E\setminus(\{1,3,4,5,9\}+j),\qquad j\in\Z/11.
+\]
+They have size $6$; distinct blocks intersect in $3$ points; each point lies in $6$ blocks and each distinct pair in $3$. These are the Hadamard parameters of order $12$, also verified directly from the eleven sets. Set $w|_E=0$. Pair the ordered extra letters with the first eleven residue-one points of $P$; pair the remaining residue-one and residue-zero points in increasing order; and pair consecutive residue-two points. This is a specified fixed-point-free involution $\iota$ with $w+\iota w\equiv1\pmod3$.
+
+Use the four concurrent-line shifts
+\[
+ (\ell_1,\ell_2,\ell_3,\ell_4)=(0,6642,6640,6634)
+\]
+to define $R_x$. The pencil identity is $\sum_{j=1}^4\one_{L_{x+\ell_j}}-\one_{R_x}=3\ee_x$, and $|R_x|=325$. Form $X_T,Y$ as in Proposition~\ref{prop:repair}. In this instance
+\begin{equation}\label{eq:char3-compact}
+ \one_P=-107\sum_x\one_{L_x}+27\sum_x\one_{R_x},
+ \qquad X=X_T-\one_P+\one_{L_0}.
+\end{equation}
+Then $X+\iota Y=\one_{L_0\cup E}$. All these instructions use integer arrays of length $6643$ or $6654$ and fixed finite sums; a finite-field implementation or a random seed is unnecessary.
+
+\subsection{Bulk, reservoir, and distinct error bounds}
+
+The leading table is the primitive product distribution from Section~\ref{sec:reservoir}. For this explicit repair a smaller reservoir than the general sufficient choice can be checked directly. We record separately the error in a two-coordinate candidate count and the error in the class and pool sizes, since the matching estimates use both.
+The leading table has, at every line index, $19478$ undecorated copies and $41$ copies with each $H_j$. Thus
+\begin{equation}\label{eq:char3-bulk}
+ N_0=132388347,
+ \qquad F_0=1634178,
+ \qquad f=82/6643.
+\end{equation}
+For the reservoir take two line copies and four undecorated union copies at every index. For each $0\le j<11$, decorate one copy of every line with index $244j+k$, $0\le k<244$, by $H_j$. These $2684$ indices are distinct and less than $6643$, so at least one line copy at every index remains undecorated. The reservoir has
+\begin{equation}\label{eq:char3-reservoir}
+ N_R=39858,
+ \qquad F_R=2\cdot82+4\cdot325=1464=244\cdot6
+\end{equation}
+slots at every letter. This is a smaller explicitly verified reservoir than the general sufficient choice \eqref{eq:reservoir-formula}.
+
+The coefficient data reconstructed from the two pencils give
+\begin{equation}\label{eq:char3-errors}
+\begin{aligned}
+ \sum_i x_i&=510897, &\sum_i y_i&=-18,\\
+ C_{\rm rep}&=1+\sum_i|x_i|+\sum_i|y_i|=856270,\\
+ B_{\rm coord}&=16952, &E_*&=F_R+B_{\rm coord}+1=18417,\\
+ C_{\rm aff}&=N_R+C_{\rm rep}=896128.
+\end{aligned}
+\end{equation}
+The coefficient ranges on undecorated lines and unions are
+\[
+ 52\le x_L\le107,\quad -27\le x_R\le2,
+ \qquad -54\le y_L\le2,\quad 0\le y_R\le29.
+\]
+Consequently all multiplicities in \eqref{eq:affine-classes} are positive for $m\ge1$. In particular, each positive union multiplicity is at least $4-2=2$, and each negative union multiplicity is at least $4$.
+
+The class cardinalities, with $n=mN_0$, are exactly
+\begin{equation}\label{eq:char3-classes}
+ |A_m^+|=n-471038,
+ \qquad |A_m^-|=n+39840,
+ \qquad |B_m|=n+39858.
+\end{equation}
+Every pool is exactly balanced with its required inverse pool by \eqref{eq:pool-vectors}. The turn-count error $E_*$ bounds the candidate count for a specified pair of outgoing coordinates. It is not a bound for the affine class offsets: $471038>18417$. The separate constant $C_{\rm aff}$ controls classes and pools in the switching estimates. Since $N_0>3C_{\rm aff}$, the convenient bound $|V\Gamma|<4n$ holds for all $m\ge1$.
+
+These finite numerical statements can be verified without enumerating pairs of graph vertices. Expand the coefficient arrays over all translates of $\mathcal D$ and $R_0$, compute their sums and absolute sums, and check $X(t)+Y(\iota(t))=\one_{L_0\cup E}(t)$ at each letter. Apply the same expansion to the absolute coefficient arrays to obtain $B_{\rm coord}$. The specification in this section and Appendix~\ref{app:certificates} is complete; the supplied certificate stores the derived arrays for a second comparison.
+
+\subsection{An exact finite-size spectral certificate}
+
+The remaining task is to certify the turn bound at an actual finite replication, rather than only in the leading distribution. The rational row ratios below give a contraction margin; the coordinate error then determines the stated sufficient threshold.
+\begin{proposition}\label{prop:char3}
+The data above satisfy Definition~\ref{def:admissible} for all $m\ge925$, with root degree $93$, minimum degree $82$, maximum degree $D=325$, and
+\[
+ \Theta=(1+1/1000)w_0,\qquad
+ \varphi|_{\iota(E),E,P\setminus\iota(E)}=(15/4,1,1),\qquad
+ \Lambda=249/250.
+\]
+Here $w_0$ is the exact leading kernel \eqref{eq:wzero}.
+\end{proposition}
+\begin{proof}
+The incidence and matching assertions follow from the preceding construction and Proposition~\ref{prop:repair}. The only normal degrees are $82,88,325$; the unique root has degree $82+11=93$. Lemma~\ref{lem:quotient} gives the exact raw row ratios
+\[
+ \frac{206926074}{220647245},\qquad
+ \frac{589637388083}{593452830152},\qquad
+ \frac{1179760200105}{1186905660304}.
+\]
+The last is the largest. Multiplication by $(1001/1000)^2$ gives a maximum of
+\[
+ \frac{28550196842541}{28665756800000}
+ =\frac{249}{250}-\frac{896930259}{28665756800000}
+ <\frac{249}{250}.
+\]
+This proves the full-alphabet inequality $\Theta^{\circ2}\varphi<\Lambda\varphi$. Since the minimum reduced weight is $1/82$, finite-size domination holds when
+\[
+ \frac{mF_0}{82000}\ge E_*=18417.
+\]
+At $m=925$ the difference between the left side and $E_*$ is $693/40>0$; at $m=924$ it is $-651/250<0$. Hence $925$ is the least integer certified by this particular sufficient bound. Reversal symmetry and $0<\Theta<1$ are immediate from \eqref{eq:wzero}.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\caption{Displayed characteristic-three direct-finiteness inputs. The comparison concerns these specified constructions, not optimality.}\label{tab:char3-comparison}
+\begin{tabular}{lrr}
+\toprule
+Quantity & Mghirbi--Douglas \cite{MD26} & Present model\\
+\midrule
+Signed letters & $59306$ & $6654$\\
+Exceptional-root degree & $257$ & $93$\\
+Maximum graph degree & $257$ & $325$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Mghirbi--Douglas use $q=3^5=243$ and $e=3^2+3+1=13$. Their normal degrees are $244$ and $253$, and their root has degree $257$ \cite[Definition~7.1, Lemma~7.2, and Section~7.4]{MD26}. The present construction has a smaller alphabet and root degree, but its maximum graph degree $325$ exceeds their $257$; the comparison is not componentwise.
+
+\begin{remark}[Interpretation of the finite bounds]\label{rem:char3-interpretation}
+The alphabet has $6654$ signed letters, and the rose has $3327$ generators. Neither number is a coefficient support size or a relator count. The root degree is $93$ and the maximum matching-graph degree is $325$. The primitive leading bulk $N_0$ is a normalization before replication; the reservoir adds $39858$ vertices to each leading class before the signed repairs.
+
+The compact-root choice has a cost within the two-pencil construction: its repair norm $856270$ exceeds the corresponding full-root norm $34807$. This comparison concerns the specified incidence choices, not optimality among all designs.
+
+The threshold $m\ge925$ concerns turn domination only. With the girth scale of Section~\ref{sec:matchings}, $b_{\rm scale}=18$ and $A=4608$, so even $L\ge3$ requires $n\ge2^{13824}$. No terminal group-defining matching is claimed at $m=925$, and the finite input bounds do not estimate computational running time.
+\end{remark}

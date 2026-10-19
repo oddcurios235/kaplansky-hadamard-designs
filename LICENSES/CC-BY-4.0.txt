@@ -1,0 +1,17 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Original copyrightable manuscript material, repository documentation and
+original finite certificate data are offered under CC BY 4.0 to the extent
+of the licensor's rights in that material.
+
+Copyright (c) 2026 Y. T. Miah (to the extent copyright subsists).
+
+Canonical licence deed: https://creativecommons.org/licenses/by/4.0/
+Full official legal code: https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+This file identifies the CC BY 4.0 licence by reference to its official
+legal code; it is not itself a substitute or modification of that legal code.
+Credit the author and cite the paper when sharing or adapting covered content,
+provide a link to the licence, and indicate changes, as the licence requires.
+The licence does not impose copyright restrictions on mathematical facts or
+ideas in which copyright does not subsist.

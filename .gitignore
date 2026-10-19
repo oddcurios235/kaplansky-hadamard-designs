@@ -1,0 +1,27 @@
+# TeX build products (the tracked main.pdf and main.bbl are intentional)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+!main.bbl
+*.pdf
+!main.pdf
+
+# Python caches and local output
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+supplement/checks/results.json
+
+# Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~

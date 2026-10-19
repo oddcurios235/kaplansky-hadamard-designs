@@ -1,0 +1,36 @@
+\section{Two support restrictions}\label{app:supports}
+The alphabet estimates in the main text count oriented labels, whereas algebraic support counts distinct group elements after coefficients have been collected. This appendix records two restrictions on the latter quantity. An elementary coefficient bound gives a support-height restriction; fixing all finite equality patterns then gives an effective, but not practical, characteristic cutoff.
+
+The finite-pattern viewpoint is developed for left-invertible elements and universal groups by Dykema--Heister--Juschenko \cite[Section~4]{DHJ15}, and for small-support zero divisors by Schweitzer \cite[Section~2]{Sch13}. Fixed-support coefficient equations also appear in Gardam's work \cite[Sections~1 and~3]{Gar24}. The Nullstellensatz reduction to finite fields is recorded in \cite[Section~1]{BFF24}. For the transfer to characteristic zero, Ivanov \cite[Section~8.3]{Iva26} fixes the group and the supports; Mghirbi--Douglas \cite[Proposition~8.3]{MD26} allow the group to vary with a fixed coincidence pattern. Here characteristic-zero direct finiteness supplies the obstruction for one-sided inverses.
+
+\begin{proposition}[Support and coefficient height]\label{prop:height}
+Let $A,B\in\Z[G]$ have distinct support sizes $s,t$, and coefficient absolute values bounded by $H_A,H_B$. Suppose reduction modulo a prime $p$ preserves both supports, giving $a,b\in\F_p[G]$. If
+\[
+ p>\min(s,t)H_AH_B,
+\]
+then $ab=0$ implies $AB=0$, and $ab=1$ implies $ba=1$. Consequently a direct-finiteness failure with these lifts requires $p\le\min(s,t)H_AH_B$. In particular, when both collected coefficient lists consist of signs, both supports have size at least $p$.
+\end{proposition}
+\begin{proof}
+A product fiber $\{(i,j):x_iy_j=g\}$ has at most $\min(s,t)$ pairs: fixing either index determines the other. Each coefficient of $AB$ consequently has absolute value at most $M=\min(s,t)H_AH_B$. If $ab=0$, each is divisible by $p>M$ and hence is zero. If $ab=1$, all nonidentity coefficients vanish integrally, and $AB=k\one$ for an integer $k\equiv1\pmod p$, necessarily nonzero. Characteristic-zero direct finiteness applied to $A$ and $B/k$ gives $BA=k\one$, and reduction gives $ba=1$. Here we use Kaplansky's theorem in the form proved by Montgomery \cite{Mon69}. It is not necessary to force $k=1$.
+\end{proof}
+
+A bound on coefficient height is unnecessary if only an effective cutoff is sought. With bounded support sizes there are finitely many patterns of equality among the product terms. For each realizable pattern, characteristic-zero direct finiteness rules out the coefficient equations for a failure, and a rational algebraic certificate excludes all sufficiently large characteristics.
+
+\begin{proposition}[A finite-characteristic cutoff at bounded supports]\label{prop:cutoff}
+For each pair of positive integers $s,t$, there is an effectively computable integer $B(s,t)$ such that, for every group $G$ and every field $K$ of prime characteristic $p>B(s,t)$,
+\[
+ |\supp a|\le s,\quad |\supp b|\le t,\quad ab=1\text{ in }K[G]
+ \quad\Longrightarrow\quad ba=1.
+\]
+\end{proposition}
+\begin{proof}
+For fixed support sizes enumerate all formal equality patterns on $x_iy_j$, $y_jx_i$, and $1$, together with the requirements that the $x_i$ are distinct and the $y_j$ are distinct. There are finitely many. For each pattern choose in turn a block on which a coefficient of $ba-1$ is required to be nonzero. The equations $ab=1$, nonvanishing of every support coefficient, and nonvanishing of that defect form a finite system over $\Z$; nonvanishing is encoded by multiplying by an auxiliary inverse variable.
+
+For a group pattern which is realizable, that system has no complex solution, by characteristic-zero direct finiteness. The weak Nullstellensatz puts $1$ in its coefficient ideal over $\Q$: a certificate over $\C$ is a finite linear system with rational coefficients and hence has a rational solution. Clearing denominators gives a nonzero integer $d$ in the ideal over $\Z$. Solutions are impossible in characteristics not dividing $d$. Taking a bound at least $2$ and at least every such $|d|$ for the finitely many realizable patterns proves existence of the cutoff.
+
+For effectivity, present the universal group imposing each pattern's equalities. The pattern is realizable precisely when all required inequalities persist in that group. Run in parallel an enumeration of relation proofs that one required inequality collapses, and an enumeration of rational polynomial identities putting $1$ in the coefficient ideal. An unrealizable pattern terminates by the first search; a realizable one terminates by the second. The finite collection of tasks all terminate. Whenever the second search terminates, record its cleared denominator $d$; the maximum of their absolute values and $2$ is a computable bound. This procedure does not decide arbitrary word problems: it uses two semidecision searches, with termination guaranteed here by the alternative algebraic certificate. Repeat for all support sizes up to $s,t$.
+\end{proof}
+
+The proof is a bounded-support consequence of the same finite-pattern transfer method, not a claimed new general mechanism. No useful numerical value of $B(s,t)$ is supplied. Bounded-support \emph{zero divisors} remain different: Proposition~8.3 of \cite{MD26} transfers such examples in infinitely many characteristics to characteristic zero, but neither the finite design nor the support estimates above provide them.
+
+In \eqref{eq:witnesses}, signs are attached to graph vertices before collection in $G$. Root protection identifies only the identity fiber. It does not imply that all nonroot labels are distinct, or that the collected coefficients are signs. Thus Proposition~\ref{prop:height} must not be applied to those vertex lists as though they were already distinct supports. Likewise a growing number of graph vertices, by itself, does not prove growing algebraic support.

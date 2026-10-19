@@ -1,0 +1,84 @@
+\section{Incidence data and the finite interface}\label{sec:incidence}
+The finite input must do two jobs before any edge is chosen. Its row intersections encode the signed algebraic identities, while its integer populations make the required inverse-letter matchings possible. Conditions (F1) and (F2) express these requirements. Conditions (F3) and (F4) control labelled paths: the first bounds candidate intermediate vertices at every finite size, and the second gives decay of squared word weights. The probabilistic and geometric consequences will be derived from these conditions in Sections~\ref{sec:matchings}--\ref{sec:realization}.
+
+\begin{definition}[Admissible finite matching input]\label{def:admissible}
+Fix a prime $p$. The input consists of a signed alphabet $(T,\iota)$, normal subsets $S_i\subseteq T$, an exceptional subset $S_r$, and affine nonnegative integer multiplicities for three classes $A_m^+,A_m^-,B_m$, with exactly one exceptional vertex $r_A$ in $A_m^+$. A normal vertex $r_B\in B_m$ is also prescribed. There are fixed integers $N_0,F_0>0$, $m_0\ge1$, constants $C_{\rm aff},D$, and a kernel $\Theta:T^2\to[0,1)$ such that, for $m\ge m_0$ and $n=mN_0$, the following hold.
+\begin{enumerate}[label=\textup{(F\arabic*)},leftmargin=2.7em]
+\item All normal-row inner products are $1$ modulo $p$, including self-products. The exceptional row has inner product $1$ with every normal row and self-product $0$ modulo $p$.
+\item Every listed multiplicity is positive. Each of the three classes has size $n+O(C_{\rm aff})$. Put $f=F_0/N_0$. Every one-letter pool has size $nf+O(C_{\rm aff})$, with absolute error at most $C_{\rm aff}$, and
+\[
+ |A^+_{m,t}|=|A^-_{m,\iota(t)}|,\qquad |B_{m,t}|=|B_{m,\iota(t)}|.
+\]
+Every vertex has between $82$ and $D$ outgoing slots.
+\item For each reduced turn $u\ne\iota(t)$ and each class $Y\in\{A_m^+,A_m^-,B_m\}$,
+\[
+ |\{x\in Y:\iota(t),u\in S_x\}|\le nf\Theta(t,u).
+\]
+Here $\Theta(t,\iota(t))=0$, every reduced value is positive, and $\Theta(t,u)=\Theta(\iota(u),\iota(t))$.
+\item There are $1\le\varphi(t)<\infty$ and $0<\Lambda<1$ such that $\Theta^{\circ2}\varphi\le\Lambda\varphi$.
+\end{enumerate}
+The constants, types, affine offsets, kernel and roots are fixed before $m$ varies. The $O(C_{\rm aff})$ class-size bounds in (F2) also mean absolute error at most $C_{\rm aff}$.
+\end{definition}
+
+The graph is formed only after these data are fixed: for each inverse pair choose two independent bijections $A^+_{m,t}\to A^-_{m,\iota(t)}$ and $A^-_{m,t}\to A^+_{m,\iota(t)}$, and one bijection $B_{m,t}\to B_{m,\iota(t)}$. A matched pair of slots is an edge with its two inverse orientations. Different bijections have disjoint slot sets, though their endpoint vertices need not be disjoint. This produces immersed graphs $\Gamma_A,\Gamma_B$, and $\Gamma_A$ is bipartite.
+
+\subsection{Ordinary projective rows}
+
+Lines in a projective plane give the intersection congruences with no choice of coefficients: unequal lines meet once, while the size of a line is also one modulo the characteristic. We also need rows that permit local integer adjustments without disturbing these congruences. Unions of concurrent lines provide precisely such rows.
+Let $q=p^r$ and $v=q^2+q+1$. Identify the points $P=\PG(2,q)$ with $\Z/v$ using a Singer action \cite{Sin38}. One construction is multiplication on the one-dimensional subspaces of $\F_{q^3}$ by a generator of $\F_{q^3}^{\times}/\F_q^{\times}$. This action is regular on points and on lines: a nonidentity multiplier has degree three over $\F_q$, so has no nonzero proper invariant subspace. Write $L_x$ for the translates of one line. Then
+\begin{equation}\label{eq:plane}
+ |L_x|=q+1,\quad |L_x\cap L_y|=1\ (x\ne y),\quad
+ \sum_x\one_{L_x}=(q+1)\one_P.
+\end{equation}
+Choose $p+1$ distinct lines $L_{\ell_j}$ through $0$ and put $R_x=x+\bigcup_jL_{\ell_j}$. Outside their common point these lines are disjoint. Thus, over the integers,
+\begin{equation}\label{eq:pencil}
+ p\ee_x=\sum_{j=1}^{p+1}\one_{L_{x+\ell_j}}-\one_{R_x},
+ \qquad |R_x|=k_R:=(p+1)q+1.
+\end{equation}
+In particular each union row is a sum of $p+1\equiv1\pmod p$ line rows modulo $p$. Equation~\eqref{eq:plane} and bilinearity show that every line/union inner product is $1$ modulo $p$.
+
+The cyclic arithmetic is only an incidence index. It does not impose the relation $t^v=1$ on any generator of the eventual group.
+
+\subsection{Hadamard auxiliary rows}
+
+An auxiliary block must meet every other auxiliary block in a multiple of the characteristic, including itself. For the matching estimates we also want each auxiliary letter, and each pair of distinct auxiliary letters, to occur equally often. A normalized Hadamard matrix gives both kinds of regularity: its two Gram identities control block intersections and point replication separately.
+\begin{lemma}[Normalized Hadamard core]\label{lem:hadamard}
+Let $H$ be a normalized real Hadamard matrix of order $m_H$, with first row and column equal to $1$. Put
+\[
+ H=\begin{pmatrix}1&\one^{\mathsf T}\\\one&C_H\end{pmatrix},
+ \qquad e=m_H-1,\quad h=m_H/2,\quad B_H=(J-C_H)/2.
+\]
+The rows of $B_H$ define $e$ blocks $H_j$ on $e$ auxiliary letters $E$. Every block has size $h$, distinct blocks intersect in $h/2$ letters, every letter lies in $h$ blocks, and every distinct pair of letters lies in $h/2$ blocks.
+\end{lemma}
+\begin{proof}
+The Hadamard identities on both sides imply
+\[
+ C_H\one=C_H^{\mathsf T}\one=-\one,
+ \qquad C_HC_H^{\mathsf T}=C_H^{\mathsf T}C_H=m_HI-J.
+\]
+Consequently $B_H$ is a zero-one matrix with row and column sums $h$, and
+\begin{equation}\label{eq:hadamard-gram}
+ B_HB_H^{\mathsf T}=B_H^{\mathsf T}B_H=\frac{m_H}{4}(I+J).
+\end{equation}
+The two products give, respectively, block intersections and point-pair replication.
+\end{proof}
+
+Assume $4p\mid m_H$. Then $e$ is odd, $e\equiv-1\pmod p$, and $h,h/2$ are divisible by $p$. No cyclic structure on $E$ is required. In particular the residue calculations in the next section take place in $\Z/p$, not in $\Z/e$.
+
+Use the following normal types, with $x\in P$ and $1\le j\le e$:
+\begin{equation}\label{eq:types}
+ L_x,\qquad L_x\cup H_j,\qquad R_x.
+\end{equation}
+Only undecorated unions are used; their role is integer repair rather than the leading distribution. The exceptional type is
+\begin{equation}\label{eq:root}
+ S_r=L_0\cup E.
+\end{equation}
+\begin{lemma}[Incidence congruences]\label{lem:gram}
+For the types \eqref{eq:types}--\eqref{eq:root}, every normal-row inner product is $1$ modulo $p$. The exceptional row has inner product $1$ with every normal row and satisfies $|S_r|\equiv0\pmod p$. Their degrees lie between $q+1$ and
+\begin{equation}\label{eq:degree}
+ D=\max\{(p+1)q+1,\ q+1+e\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Equation~\eqref{eq:pencil} proves the ordinary congruences. Auxiliary products contribute $0,h$, or $h/2$, all zero modulo $p$. Intersecting the root with a normal row contributes the line intersection and either $0$ or $h$ auxiliary letters. Finally $q+1+e\equiv0\pmod p$. A decorated line has degree $q+1+h\le q+1+e$.
+\end{proof}

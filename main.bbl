@@ -1,0 +1,201 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{AOP02}
+Pere Ara, Kevin~C. O'Meara, and Francesc Perera, \emph{Stable finiteness of
+  group rings in arbitrary characteristic}, Adv. Math. \textbf{170} (2002),
+  no.~2, 224--238,
+  \href{https://doi.org/10.1006/aima.2002.2075}{doi:10.1006/aima.2002.2075}.
+
+\bibitem{BP93}
+William~A. Bogley and S.~J. Pride, \emph{Calculating generators of {$\Pi_2$}},
+  Two-Dimensional Homotopy and Combinatorial Group Theory (Cynthia
+  Hog-Angeloni, Wolfgang Metzler, and Allan~J. Sieradski, eds.), London
+  Mathematical Society Lecture Note Series, vol. 197, Cambridge University
+  Press, Cambridge, 1993,
+  \href{https://doi.org/10.1017/CBO9780511629358.007}{doi:10.1017/CBO9780511629358.007},
+  pp.~157--188.
+
+\bibitem{BFF24}
+Henry Bradford and Francesco Fournier-Facio, \emph{Hopfian wreath products and
+  the stable finiteness conjecture}, Math. Z. \textbf{308} (2024), Paper No.
+  58, 28~pp.
+  \href{https://doi.org/10.1007/s00209-024-03589-3}{doi:10.1007/s00209-024-03589-3}.
+
+\bibitem{BH99}
+Martin~R. Bridson and Andr{\'e} Haefliger, \emph{Metric spaces of non-positive
+  curvature}, Grundlehren der mathematischen Wissenschaften, vol. 319,
+  Springer-Verlag, Berlin, 1999,
+  \href{https://doi.org/10.1007/978-3-662-12494-9}{doi:10.1007/978-3-662-12494-9}.
+
+\bibitem{Bro82}
+Kenneth~S. Brown, \emph{Cohomology of groups}, Graduate Texts in Mathematics,
+  vol.~87, Springer-Verlag, New York, 1982,
+  \href{https://doi.org/10.1007/978-1-4684-9327-6}{doi:10.1007/978-1-4684-9327-6}.
+
+\bibitem{CH82}
+D.~J. Collins and J.~Huebschmann, \emph{Spherical diagrams and identities among
+  relations}, Math. Ann. \textbf{261} (1982), no.~2, 155--183,
+  \href{https://doi.org/10.1007/BF01456216}{doi:10.1007/BF01456216}.
+
+\bibitem{Cra95}
+Robert Craigen, \emph{Signed groups, sequences, and the asymptotic existence of
+  {Hadamard} matrices}, J. Combin. Theory Ser. A \textbf{71} (1995), no.~2,
+  241--254,
+  \href{https://doi.org/10.1016/0097-3165(95)90002-0}{doi:10.1016/0097-3165(95)90002-0}.
+
+\bibitem{Dir37}
+P.~G.~Lejeune Dirichlet, \emph{There are infinitely many prime numbers in all
+  arithmetic progressions with first term and difference coprime}, 1837,
+  English translation by R.~Stephan, revised 24 November 2014,
+  \href{https://arxiv.org/abs/0808.1408v2}{arXiv:0808.1408v2}.
+
+\bibitem{DJ24}
+Cheng Du and Yi~Jiang, \emph{{Golay} complementary sequences of arbitrary
+  length and asymptotic existence of {Hadamard} matrices}, 2024, Preprint,
+  \href{https://arxiv.org/abs/2401.15381v1}{arXiv:2401.15381v1}, 27 January
+  2024. Theorem~3, p.~18; Section~IV and Table~II, p.~26.
+
+\bibitem{DHJ15}
+Ken Dykema, Timo Heister, and Kate Juschenko, \emph{Finitely presented groups
+  related to {Kaplansky's} direct finiteness conjecture}, Exp. Math.
+  \textbf{24} (2015), no.~3, 326--338,
+  \href{https://doi.org/10.1080/10586458.2014.993051}{doi:10.1080/10586458.2014.993051};
+  \href{https://arxiv.org/abs/1112.1790v4}{arXiv:1112.1790v4}.
+
+\bibitem{ES04}
+G{\'a}bor Elek and Endre Szab{\'o}, \emph{Sofic groups and direct finiteness},
+  J. Algebra \textbf{280} (2004), no.~2, 426--434,
+  \href{https://doi.org/10.1016/j.jalgebra.2004.06.023}{doi:10.1016/j.jalgebra.2004.06.023}.
+  Corollary~4.7 in
+  \href{https://arxiv.org/abs/math/0305440v2}{arXiv:math/0305440v2}.
+
+\bibitem{Gar24}
+Giles Gardam, \emph{Non-trivial units of complex group rings}, 2024, Preprint,
+  \href{https://arxiv.org/abs/2312.05240v2}{arXiv:2312.05240v2}, 29 October
+  2024.
+
+\bibitem{Gh15}
+Ebrahim Ghaderpour, \emph{Signed group orthogonal designs and their
+  applications}, Algebraic Design Theory and Hadamard Matrices (Charles~J.
+  Colbourn, ed.), Springer Proceedings in Mathematics \& Statistics, vol. 133,
+  Springer, Cham, 2015,
+  \href{https://doi.org/10.1007/978-3-319-17729-8_9}{doi:10.1007/978-3-319-17729-8\_9}.
+  Theorem~10 on pp.~14--15 of
+  \href{https://arxiv.org/abs/1502.07668v1}{arXiv:1502.07668v1}, pp.~107--123.
+
+\bibitem{Hat02}
+Allen Hatcher, \emph{Algebraic topology}, Cambridge University Press,
+  Cambridge, 2002,
+  \href{https://pi.math.cornell.edu/~hatcher/AT/AT.pdf}{Author's edition};
+  Theorems~4.5 and~4.32.
+
+\bibitem{Iva26}
+S.~V. Ivanov, \emph{Zero divisors in group algebras of torsion-free groups in
+  odd characteristic}, 2026, Preprint,
+  \href{https://arxiv.org/abs/2610.17662v1}{arXiv:2610.17662v1}, submitted 13
+  October 2026; manuscript dated 7 October 2026.
+
+\bibitem{Kap72}
+Irving Kaplansky, \emph{Fields and rings}, second ed., Chicago Lectures in
+  Mathematics, University of Chicago Press, Chicago, 1972.
+
+\bibitem{LT79}
+Richard~J. Lipton and Robert~E. Tarjan, \emph{A separator theorem for planar
+  graphs}, SIAM J. Appl. Math. \textbf{36} (1979), no.~2, 177--189,
+  \href{https://doi.org/10.1137/0136016}{doi:10.1137/0136016}.
+
+\bibitem{Liv12}
+Ivan Livinskyi, \emph{Asymptotic existence of {Hadamard} matrices}, Master's
+  thesis, University of Manitoba, Winnipeg, 2012,
+  \href{https://mspace.lib.umanitoba.ca/bitstreams/46d98169-d70f-4d13-b3c7-a657d0ce68e2/download}{Institutional
+  thesis}; Chapter~5, especially Section~5.3; cited for the
+  complementary-sequence antecedent of Ghaderpour's Theorem~10.
+
+\bibitem{LS77}
+Roger~C. Lyndon and Paul~E. Schupp, \emph{Combinatorial group theory},
+  Ergebnisse der Mathematik und ihrer Grenzgebiete, vol.~89, Springer-Verlag,
+  Berlin, 1977, Chapter~V.
+  \href{https://doi.org/10.1007/978-3-642-61896-3}{2001 reprint of the 1977
+  edition}.
+
+\bibitem{McK81}
+Brendan~D. McKay, \emph{Subgraphs of random graphs with specified degrees},
+  Congr. Numer. \textbf{33} (1981), 213--223.
+
+\bibitem{MW91}
+Brendan~D. McKay and Nicholas~C. Wormald, \emph{Asymptotic enumeration by
+  degree sequence of graphs with degrees {$o(n^{1/2})$}}, Combinatorica
+  \textbf{11} (1991), no.~4, 369--382,
+  \href{https://doi.org/10.1007/BF01275671}{doi:10.1007/BF01275671}.
+
+\bibitem{MD26}
+Nidhal Mghirbi and Seth Douglas, \emph{{Kaplansky's} conjectures fail for
+  torsion-free hyperbolic groups in positive characteristic}, 2026, Preprint
+  dated 14 October 2026, version~1.0.1.
+  \href{https://doi.org/10.5281/zenodo.23374592}{doi:10.5281/zenodo.23374592};
+  \href{https://github.com/Apsiape/kaplansky-conjectures-hyperbolic-groups}{author
+  repository}. Theorems~B and~C; Sections~3--4 and~7.
+
+\bibitem{Min24}
+Igor Mineyev, \emph{The topology and geometry of units and zero-divisors:
+  origami}, 2024, Preprint, 1 April 2024, revised 12 August 2026.
+  \url{https://mineyev.web.illinois.edu/art/top-geom-uzd-origami.pdf}.
+
+\bibitem{Mon69}
+M.~S. Montgomery, \emph{Left and right inverses in group algebras}, Bull. Amer.
+  Math. Soc. \textbf{75} (1969), no.~3, 539--540,
+  \href{https://doi.org/10.1090/S0002-9904-1969-12234-2}{doi:10.1090/S0002-9904-1969-12234-2}.
+
+\bibitem{Oll05}
+Yann Ollivier, \emph{A {January} 2005 invitation to random groups}, Ensaios
+  Matem{\'a}ticos, vol.~10, Sociedade Brasileira de Matem{\'a}tica, Rio de
+  Janeiro, 2005.
+
+\bibitem{OAI257}
+{OpenAI}, \emph{A hyperbolic group with no geometric {CAT(0)} action}, 2026,
+  Manuscript dated 25 September 2026, \texttt{openai/math}, commit
+  \texttt{adc7f1241b42}.
+  \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-hyperbolic-group-with-no-geometric-CAT0-action-September-25-2026/paper.pdf}{Pinned
+  PDF}.
+
+\bibitem{OAI197a}
+\bysame, \emph{A torsion-free group algebra that is not directly finite}, 2026,
+  Manuscript dated 4 October 2026, \texttt{openai/math}, commit
+  \texttt{adc7f1241b42}.
+  \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Torsion-Free-Group-Algebra-That-Is-Not-Directly-Finite-October-4-2026/direct-finiteness.pdf}{Pinned
+  PDF}; source files \texttt{random.tex}, \texttt{patterns.tex},
+  \texttt{planar.tex}, \texttt{topology.tex}, \texttt{algebra.tex},
+  \texttt{assembly.tex} in \texttt{build/sections/}.
+
+\bibitem{OAI196}
+\bysame, \emph{A torsion-free group algebra with zero divisors}, 2026,
+  Manuscript dated 23 September 2026, \texttt{openai/math}, commit
+  \texttt{adc7f1241b42}.
+  \href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/A-Torsion-Free-Group-Algebra-with-Zero-Divisors-September-23-2026/paper.pdf}{Pinned
+  PDF}.
+
+\bibitem{Pal33}
+R.~E. A.~C. Paley, \emph{On orthogonal matrices}, J. Math. Phys. \textbf{12}
+  (1933), 311--320,
+  \href{https://doi.org/10.1002/sapm1933121311}{doi:10.1002/sapm1933121311}.
+
+\bibitem{Sch13}
+Pascal Schweitzer, \emph{On zero divisors with small support in group rings of
+  torsion-free groups}, J. Group Theory \textbf{16} (2013), no.~5, 667--693,
+  \href{https://doi.org/10.1515/jgt-2013-0017}{doi:10.1515/jgt-2013-0017};
+  \href{https://arxiv.org/abs/1202.6645}{arXiv:1202.6645}.
+
+\bibitem{Sin38}
+James Singer, \emph{A theorem in finite projective geometry and some
+  applications to number theory}, Trans. Amer. Math. Soc. \textbf{43} (1938),
+  no.~3, 377--385,
+  \href{https://doi.org/10.1090/S0002-9947-1938-1501951-4}{doi:10.1090/S0002-9947-1938-1501951-4}.
+
+\end{thebibliography}

@@ -1,0 +1,119 @@
+\section{Two pencils and exact integer repair}\label{sec:repair}
+Adding the exceptional root changes the slot counts at the coordinates of $S_r$. To restore the inverse-letter balances, we seek integer row combinations $X,Y$ with $X+\iota Y=\one_{S_r}$. We choose $\iota$ by first solving a residue-pairing problem, and then use the coordinate identity~\eqref{eq:pencil} to remove the remaining defect over the integers. The two-pencil calculation depends on the number of auxiliary letters, not on an auxiliary-prime realization of the blocks.
+
+To see the required residue counts, begin with a line combination $w$ supported on $P$. Its auxiliary coordinates are zero, so each of the $e$ auxiliary letters must be paired with an ordinary coordinate of residue one. After these pairs are removed, the ordinary residues must pair under $t\mapsto1-t$. Writing $n_t$ for their counts, we therefore require $n_1-n_0=e$, equality of the other complementary counts, and even cardinality in the fixed residue class $2^{-1}$.
+
+Two affine pencils turn the pairing problem into a short calculation with residue histograms. Each affine point belongs to exactly one line of each pencil, so its coefficient is the sum of two pencil coefficients and its histogram is their cyclic convolution. Points at infinity behave differently: each pencil centre sees the sum of all coefficients in its pencil, while the remaining points see only the coefficient on the common line at infinity. Thus the affine convolution alone cannot determine the final residue counts.
+
+For $p\ge5$ we choose the first histogram to differ from uniformity at just two residues, $0$ and $k=4^{-1}$. Convolution with this difference turns the required affine correction into the cyclic difference equation $\beta_t-\beta_{t-k}=C_t$. To integrate it into an \emph{integer} histogram, the total increment must vanish; to choose the solution with sum zero, its first moment must also vanish modulo $p$. The second moment then governs the coefficient sum at the pencil centres. These conditions leave room to adjust the two complementary residue classes adjacent to the centres. Concentrating the correction $C$ at four residues gives the explicit solution below: its $1$-versus-$0$ imbalance supplies the $e$ auxiliary partners, and the remaining entries compensate for the two centres and the points at infinity. This explains the form of the coefficients without requiring any special arithmetic structure on the auxiliary letters.
+
+\subsection{A residue seed for \texorpdfstring{$p\ge5$}{p at least 5}}
+Represent residues by integers in $\{0,\ldots,p-1\}$. Put
+\[
+ h_0=2^{-1},\qquad k=4^{-1},\qquad c=1-k \quad\text{in }\Z/p.
+\]
+The five residues $0,k,h_0,c,1$ are distinct. Define integer vectors $\alpha,C$ on $\Z/p$ by
+\begin{equation}\label{eq:histogram-target}
+ \alpha_0=1,\quad\alpha_k=-1,\qquad
+ C_1=e,\quad C_k=2,\quad C_c=4,\quad C_{h_0}=-e-6,
+\end{equation}
+with all other entries zero.
+
+The relations $h_0=2k$, $c=3k$ and $1=4k$ make the moment calculation particularly short. Lemma~\ref{lem:cyclic} solves the difference equation; Lemma~\ref{lem:residue} then shows how the two pencil centres complete the required complementary counts.
+
+\begin{lemma}[Cyclic coefficient construction]\label{lem:cyclic}
+There is a unique integer vector $\beta$ with
+\begin{equation}\label{eq:beta}
+ \beta_t-\beta_{t-k}=C_t,\qquad\sum_t\beta_t=0.
+\end{equation}
+It satisfies
+\[
+ \alpha*\beta=C,\qquad \sum_t t\beta_t\equiv-k\pmod p,
+ \qquad \max_t|\beta_t|\le e+6.
+\]
+\end{lemma}
+\begin{proof}
+Using $h_0=2k$, $c=3k$, $1=4k$ and $e\equiv-1\pmod p$ gives
+\[
+ \sum_tC_t=0,\qquad \sum_t tC_t\equiv0,\qquad
+ \sum_t t^2C_t\equiv2k^2\pmod p.
+\]
+Integrate the difference equation around the $k$-cycle. The zero total makes the resulting integer solution periodic. Its first moment gives
+$0\equiv-k\sum_t\beta_t$, so its sum is divisible by $p$. Subtracting its integer mean centers it, uniquely. The second moment gives
+\[
+ 2k^2\equiv-2k\sum_t t\beta_t-k^2\sum_t\beta_t,
+\]
+which proves the moment assertion. Convolution with $\alpha$ is exactly the difference equation. The total positive variation of the cyclic increments $C_t$ is $e+6$. Hence the range of an integrated solution has length at most $e+6$; its mean lies between its minimum and maximum, proving the last bound after centering.
+\end{proof}
+
+Choose $q=p^r\ge81$ with
+\begin{equation}\label{eq:histogram-feasible}
+ q/p+\alpha_t\ge0,\qquad q/p+\beta_t\ge0\quad(t\in\Z/p).
+\end{equation}
+A sufficient condition is $q/p\ge e+6$. Put $F_t=q/p+\alpha_t$ and $G_t=q/p+\beta_t$. Both histograms sum to $q$. Choose maps $f_0,g_0:\F_q\to\{0,\ldots,p-1\}$ with these histograms, using any fixed enumeration. In homogeneous coordinates set
+\begin{equation}\label{eq:seed}
+ w=\sum_{x\in\F_q}f_0(x)\one_{\{X=xZ\}}
+   +\sum_{y\in\F_q}g_0(y)\one_{\{Y=yZ\}}
+   +h_0\one_{\{Z=0\}},\qquad w|_E=0.
+\end{equation}
+All coefficients here are nonnegative integers; $h_0$ is its chosen representative. These are actual projective lines, each of which has a unique Singer index.
+
+\begin{lemma}[Complementary residues]\label{lem:residue}
+The ordinary residue counts of $w$ are
+\begin{equation}\label{eq:residue-counts}
+ n_t=q^2/p+C_t+2[t=k]+(q-1)[t=h_0].
+\end{equation}
+They satisfy $n_1-n_0=e$, $n_k=n_c$, equality of every other pair $n_t,n_{1-t}$ with $t\ne0,1$, and evenness of $n_{h_0}$. There is therefore a fixed-point-free involution $\iota$ on $T=P\sqcup E$, with $\iota(E)\subset P$, such that
+\begin{equation}\label{eq:residue-pair}
+ w_t+w_{\iota(t)}\equiv1\pmod p.
+\end{equation}
+\end{lemma}
+\begin{proof}
+At an affine point $(x,y,1)$ the value is $f_0(x)+g_0(y)$, with histogram $F*G=q^2/p+C$. The sum of the coefficients in either affine pencil is $-k$ modulo $p$. The uniform contribution is $q(p-1)/2$, which is divisible by $p$. Thus each pencil center has residue $-k+h_0=k$, and each other point at infinity has residue $h_0$. This proves \eqref{eq:residue-counts}.
+
+The stated complementary counts follow from \eqref{eq:histogram-target}. Since $q^2/p$ and $e+6$ are odd, $n_{h_0}=q^2/p-e-6+q-1$ is even. Pair the $e$ auxiliary letters with $e$ ordinary residue-one coordinates; pair the remaining complementary residue classes, and pair the $h_0$ class internally. The first step is possible because $n_1=n_0+e$. Ordering each class makes the pairing deterministic.
+\end{proof}
+
+\subsection{Lifting the defect over the integers}
+
+The residue pairing makes each remaining coordinate defect divisible by $p$. The line--union identity can therefore correct it exactly. We first obtain the full-alphabet defect, then replace the full root by the compact root using an integer expression for the all-ordinary row.
+Let $\mathcal L\subseteq\Z^T$ be the integer span of the undecorated line and union rows. For $z\in\Z^T$ the expression $\iota z$ denotes coordinate permutation, not a permutation of row coefficients.
+
+\begin{proposition}[Coordinate repair and compact root]\label{prop:repair}
+Suppose $w\in\mathcal L$ is supported on $P$ and satisfies \eqref{eq:residue-pair}. There are explicitly determined integer combinations $X,Y\in\mathcal L$ with
+\begin{equation}\label{eq:exact-repair}
+ X+\iota Y=\one_{S_r},\qquad S_r=L_0\cup E.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Set $z_t=(1-w_t-w_{\iota(t)})/p\in\Z$. Begin with $X_T=Y=w$. For every ordinary $t$, add $pz_t\ee_t$ to $X_T$ using \eqref{eq:pencil}. For every auxiliary $a$, add $pz_a\ee_{\iota(a)}$ to $Y$ using the same identity. No auxiliary coordinates are added to either row expansion. If $t,\iota(t)\in P$, only the $X_T$ correction at $t$ affects $X_T(t)+Y(\iota(t))$. If $\iota(t)\in E$, that sum is $w_t+pz_t=1$; and on an auxiliary $a$ it is $w_{\iota(a)}+pz_a=1$. Hence $X_T+\iota Y=\one_T$.
+
+Summing \eqref{eq:pencil} and using \eqref{eq:plane} yields
+\begin{equation}\label{eq:ordinary-indicator}
+ \one_P=\left(1-\frac{(p+1)q}{p}\right)\sum_x\one_{L_x}
+              +\frac qp\sum_x\one_{R_x}.
+\end{equation}
+The coefficients are integers. Take $X=X_T-\one_P+\one_{L_0}$ to obtain \eqref{eq:exact-repair}.
+\end{proof}
+
+Write $X=\sum_i x_i\one_{S_i}$ and $Y=\sum_i y_i\one_{S_i}$ using \eqref{eq:types}, with zero coefficients on decorated rows. These expansions are algorithmic: each coordinate correction changes $p+1$ line coefficients and one union coefficient. Consequently their sizes can be bounded before any reservoir or bulk replication is chosen.
+
+For the nonnegative seed \eqref{eq:seed}, let
+\begin{equation}\label{eq:repair-norms}
+ C_{\rm base}=\sum_t t(F_t+G_t)+h_0,\qquad
+ Z_*=\frac{2(q+1)C_{\rm base}-(v+e)}p.
+\end{equation}
+Every $w_t+w_{\iota(t)}$ is a nonnegative integer congruent to $1$, so it is at least $1$. Thus $z_t\le0$ and $\sum_t|z_t|=Z_*$. The full-root repair has coefficient norm, including one for the root, at most
+\[
+ 1+2C_{\rm base}+(p+2)Z_*.
+\]
+Passing to the compact root adds at most
+\[
+ v\left(\left|1-\frac{(p+1)q}{p}\right|+\frac qp\right)+1
+\]
+to this bound. The smaller root thus trades vertex degree against the size of the integer correction; it need not decrease the repair norm. For subsequent estimates define the actual finite quantities
+\begin{equation}\label{eq:repair-errors}
+ B_*:=\max\{1,\max_i|x_i|,\max_i|y_i|\},\qquad
+ C_{\rm rep}:=1+\sum_i|x_i|+\sum_i|y_i|.
+\end{equation}
+They do not depend on replication. The five distinct residues used above are unavailable at $p=3$. Section~\ref{sec:char3} uses a simpler seed in that case, followed by exactly Proposition~\ref{prop:repair}.

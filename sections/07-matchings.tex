@@ -1,0 +1,141 @@
+\section{Conditioned matchings and the realization estimates}\label{sec:matchings}
+Fix finite input from Theorem~\ref{thm:finite} or Proposition~\ref{prop:char3}. All types, affine corrections and roots are now deterministic; randomness enters only through the compatible slot bijections as replication grows. The realization requires matchings of large girth, and it requires probability estimates \emph{under that conditioning}. A switching argument supplies uniform bounds on prescribed edges within the actual sign subpools. From those bounds we obtain expansion and, more importantly for the bounded-path theorem, counts of labelled injective images.
+
+The switching and expansion arguments follow \cite[Section~3.3, Lemma~3.3 and Proposition~3.4]{OAI197a}, with the prescribed colour data of \cite[Construction~4.1 and Section~6.1]{Iva26}; compare also \cite[Proposition~7.9]{MD26}. Their classical switching antecedents are \cite{McK81,MW91}. The task here is to establish the required counts for the affine populations, including the fixed-multiplicity union types.
+
+Write $\Prob$ for the independent uniform law on the compatible bijections of Definition~\ref{def:admissible}. We consider only $m$ beyond the finite positivity and turn-domination thresholds, and subsequently beyond $n>3C_{\rm aff}$. Set
+\begin{equation}\label{eq:girth-scale}
+ b_{\rm scale}=\min\{b\in\N:2^b\ge8D/f\},\qquad
+ A=256b_{\rm scale},\qquad
+ L=\floor{\frac{\log_2 n}{A}},\qquad n=mN_0.
+\end{equation}
+Let $\mathcal G_L$ denote the event that $\Gamma=\Gamma_A\sqcup\Gamma_B$ has girth at least $L$.
+
+\subsection{Why maximum degree, rather than alphabet size, suffices}
+The finite type of every prospective vertex is prescribed before edges are sampled. At that vertex there are at most $D$ outgoing slots. Thus a description of an oriented cycle can choose its consecutive vertices first, and then choose at most $D$ outgoing labels at each chosen vertex. It need not choose from every letter of $T$ at every step. Similarly, among a prescribed set of $2k$ vertices, an oriented matched pair is specified by its source vertex, one of at most $D$ source slots, and its target vertex, giving at most $4Dk^2$ possibilities. An invalid target slot only removes a possibility.
+
+These are counting statements about prescribed slots, not about word entropy. Word counts in Appendix~\ref{app:bp} still use the full alphabet. This distinction justifies using $D=325$, rather than $|T|=6654$, in \eqref{eq:girth-scale} and in the expansion estimates for characteristic three.
+
+\begin{lemma}[A switch within one subpool]\label{lem:switch}
+Let $xy$ and $uz$ be oriented edges belonging to the same matching bijection. Suppose $uz$ is on no cycle shorter than $L$, and the distance between $\{x,y\}$ and $\{u,z\}$ exceeds $2L$. Replacing $xy,uz$ by $xz,uy$ preserves all slots and creates no cycle shorter than $L$.
+\end{lemma}
+\begin{proof}
+The operation transposes two targets of one bijection, preserving types and, on $A$, the two sign classes. A new short cycle containing only one new edge would give an old path of length less than $L$ between the two distant endpoint sets. If it contains both new edges, remove them. The remaining paths either join the distant sets, or join $x$ to $y$ and $u$ to $z$. The latter $u$--$z$ path, together with $uz$, is an old cycle shorter than $L$. Both possibilities are excluded. The argument allows $x=y$, in which case the corresponding residual path may be empty.
+\end{proof}
+
+\begin{proposition}\label{prop:girth}
+For all sufficiently large $m$, $\mathcal G_L$ is nonempty.
+\end{proposition}
+\begin{proof}
+A feasible collection of $k$ distinct prescriptions has unconditioned probability given by reciprocals of falling factorials in the actual subpools, and hence at most $(nf-C_{\rm aff}-k)^{-k}$. A cycle of length $k$ has at most two colourings on $A$, and one side choice on $B$. By the slot count above its number of vertex/label descriptions is at most $3(n+C_{\rm aff})^kD^k$. A simple cycle prescribes $k$ distinct edges, including loops and parallel pairs at lengths one and two. Thus the expected number of edges lying on cycles shorter than $L$ is at most
+\[
+ 3\sum_{k<L}k(4D/f)^k=o(n).
+\]
+Indeed $4D/f<2^{b_{\rm scale}}$ and \eqref{eq:girth-scale} make the exponential factor at most $n^{1/256}$.
+
+Choose an outcome with $o(n)$ such bad edges. There are $O(D^{2L+2})=o(n)$ edges incident to the radius-$2L$ neighborhoods of the endpoints of any specified edge; here $D^{2L}\le n^{1/128}$. Every subpool has $nf+O(1)$ edges. Therefore any bad edge has, in its own subpool, a distant edge which is not bad. Lemma~\ref{lem:switch} removes that bad edge without creating another, and any old short cycle not using it is unchanged. Iteration ends after finitely many steps at an outcome in $\mathcal G_L$.
+\end{proof}
+
+Define $\Prob_L=\Prob(\,\cdot\mid\mathcal G_L)$ for these $m$. A prescription refers to an undirected matching edge; writing it in reverse does not make a new prescription.
+\begin{lemma}[Conditioned prescriptions]\label{lem:prescriptions}
+There is $r_n=C_{\rm aff}+O(D^{2L+2})=o(n)$ such that, for every set $S$ of $s$ distinct prescriptions with $\Prob_L(S)>0$ and every further prescription $e\notin S$,
+\begin{equation}\label{eq:conditional}
+ \Prob_L(e\mid S)\le\frac1{nf-s-r_n}
+\end{equation}
+when the denominator is positive. In particular, uniformly over sets of $E\le C_1L$ distinct prescriptions, for fixed $C_1$,
+\begin{equation}\label{eq:prescriptions}
+ \Prob_L(\text{all prescriptions})\le(nf)^{-E}\exp(o(L)).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The conditional law is uniform on a finite set of tuples satisfying $S$. From a tuple containing $e=xy$, at least $nf-s-r_n$ edges of its subpool are unprescribed and far from $x,y$. All edges are now on no cycle shorter than $L$. Switch with any such $uz$. The switch preserves $S$, deletes $e$, and stays in $\mathcal G_L$ by Lemma~\ref{lem:switch}. The output determines the input and the switch uniquely: in its bijection $\psi$, one recovers $z=\psi(x)$ and $u=\psi^{-1}(y)$. Counting these injective images gives \eqref{eq:conditional}. A zero-probability exposure prefix gives zero joint probability; otherwise successive application of the bound gives
+\[
+ (nf)^{-E}\exp\left(O\!\left(\frac{E(E+r_n)}n\right)\right),
+\]
+which is \eqref{eq:prescriptions} for $E=O(L)$. No estimate from below for $\Prob(\mathcal G_L)$, or independence after conditioning, is used.
+\end{proof}
+
+\subsection{Expansion and component diameter}
+
+A small set with too few neighbours would force many prescribed edges into a small vertex set. The conditioned prescription bound makes such configurations unlikely. Once these sets expand, disjoint-ball packing along a geodesic gives a logarithmic diameter bound.
+Set
+\begin{equation}\label{eq:diameter-constants}
+ \rho=\left(\frac{f}{1000D}\right)^2,\qquad
+ d_0=\ceil{1000A/\rho},\qquad D_0=d_0+32A.
+\end{equation}
+\begin{proposition}\label{prop:diameter}
+With $\Prob_L$-probability tending to one, every component of $\Gamma$ has diameter at most $d_0L$.
+\end{proposition}
+\begin{proof}
+Suppose a vertex set $S$ of size $k\le\rho n$ has a closed neighborhood of size less than $2k$. Some set $Z$ of $2k$ vertices contains that neighborhood. The minimum degree is at least $82$, so $Z$ contains at least $41k$ distinct edges incident to $S$. Since the whole graph has fewer than $4n$ vertices, there are at most $(2\mathrm e n/k)^{2k}$ choices for $Z$. There are at most $4Dk^2$ candidate prescriptions on it. Take $r=41k$. At each positive-probability prefix of an $r$-edge prescription, \eqref{eq:conditional} has denominator at least $nf/2$ for all large $n$, since $41\rho<f/4$ and $r_n=o(n)$. Using $\mathrm e<3$, the union bound is at most
+\begin{equation}\label{eq:expansion-bound}
+ \bigl(C_3(k/n)^{39}\bigr)^k,
+ \qquad C_3=36\left(\frac{24D}{41f}\right)^{41}.
+\end{equation}
+The chosen $\rho$ satisfies
+\[
+ C_3\rho^{39}=36(24/41)^{41}1000^{-78}(f/D)^{37}<\tfrac12.
+\]
+For $k\le\sqrt n$ sum the upper bounds $(C_3n^{-39/2})^k$; for larger $k$ sum $2^{-k}$. Both sums tend to zero. Thus every set of size at most $\rho n$ doubles on adjoining its neighbors, with probability tending to one.
+
+On this event a ball of radius $R=\ceil{\log_2n}+2$ has more than $\rho n$ vertices, since it doubles until passing that threshold. Along a geodesic, radius-$R$ balls centered $2R+1$ apart are disjoint. There are fewer than $4/\rho$ such balls because $|V\Gamma|<4n$. The resulting diameter bound is less than $(4/\rho)(2R+1)$. For all large $n$, \eqref{eq:girth-scale} bounds this by $d_0L$.
+\end{proof}
+
+\subsection{Word decay and the model-dependent image estimate}
+
+The finite kernel now enters in two ways. Its entrywise-square contraction bounds the number of heavily weighted words, and its candidate-count interpretation bounds injective realizations of a fixed labelled image. These are the two estimates used at every multiplicity level in Appendix~\ref{app:bp}.
+For a word $w=t_1\cdots t_s$, define
+\[
+ P_\Theta(w)=\prod_{j<s}\Theta(t_j,t_{j+1}).
+\]
+It is zero on words with immediate backtracking. The kernel symmetry $\Theta(t,u)=\Theta(\iota(u),\iota(t))$ gives the combined inversion-and-reversal identity
+\[
+ P_\Theta(t_1\cdots t_s)=P_\Theta(\iota(t_s)\cdots\iota(t_1)),
+\]
+that is, $P_\Theta(w^{-1})=P_\Theta(w)$. Fix
+\begin{equation}\label{eq:epsilon}
+ \gamma=(1-\Lambda)/8,\qquad a_0=q+1,\qquad
+ \varepsilon=\frac{\gamma}{32(1+a_0)}.
+\end{equation}
+For all our inputs, $a_0> -\log\min_{u\ne\iota(t)}\Theta(t,u)$, since the minimum is at least $1/(q+1)$. Any larger $a_0$ could instead be used, with the corresponding smaller $\varepsilon$.
+\begin{lemma}\label{lem:word-decay}
+For all sufficiently large $s$, depending only on the fixed finite input,
+\[
+ \sum_{w\in T^s}P_\Theta(w)^2\le\exp(-2\gamma s).
+\]
+\end{lemma}
+\begin{proof}
+For $M=\Theta^{\circ2}$ the sum is $\one^{\mathsf T}M^{s-1}\one\le(\sum_t\varphi(t))\Lambda^{s-1}$. Since $\log\Lambda\le-(1-\Lambda)$ and $2\gamma=(1-\Lambda)/4$, the fixed prefactor is absorbed for sufficiently large $s$.
+\end{proof}
+
+The passage from finite incidence data to the inherited bounded-path argument occurs in Lemma~\ref{lem:image}. In a labelled chain, an internal vertex is chosen from a two-coordinate candidate pool, while each distinct edge consumes one matching prescription. The two counts are normalized by the same \emph{letter pool}, so their powers cancel. The sides and, in $A$, the bipartition signs must be kept fixed for this cancellation to be uniform. Unlike an estimate normalized by a vertex-type frequency, the result continues to hold when a union type occurs only in the fixed reservoir; compare \cite[equation~(4.11)]{OAI197a} and \cite[proof of Proposition~7.9(c)]{MD26}.
+
+\begin{lemma}[Injective image estimate]\label{lem:image}
+Let $\Delta$ be an abstract finite graph without isolated vertices, decomposed into $Q$ chains with disjoint degree-two interiors and marked endpoints. Let it have $E\le C_1L$ edges and $V$ vertices, with fixed immersed edge labels. Prescribe its component sides, and proper signs on its $A$-part. If $k_0\in\{0,1\}$ marked vertices are prescribed to their corresponding fixed root, then
+\begin{equation}\label{eq:image-estimate}
+ \Exp_L\#\{\text{injective realizations of }\Delta\}
+ \le n^{V-E-k_0}f^{-Q}
+ \prod_{\text{internal chain turns}}\Theta(t,u)\,\exp(o(L)).
+\end{equation}
+The error is uniform for fixed $C_1,Q$.
+\end{lemma}
+\begin{proof}
+There are $E-Q$ internal chain vertices. Definition~\ref{def:admissible}(F3) bounds their candidate counts by $nf\Theta(t,u)$ on their prescribed sign class or $B$. Each other unfixed marked vertex has at most $n+C_{\rm aff}$ choices, and a prescribed root has one. The product of these candidate counts is at most
+\[
+ n^{V-k_0}f^{E-Q}\prod\Theta(t,u)\exp(O(L/n)).
+\]
+Retain only injective assignments compatible with all slots. Each requires $E$ distinct prescriptions, so Lemma~\ref{lem:prescriptions} gives \eqref{eq:image-estimate}. Assignments identifying vertices do not represent this image graph and are not counted as independent edge prescriptions. A connected bipartite image has only two sign colourings; recording them costs a bounded factor per component, not one factor per edge.
+\end{proof}
+
+All reservoir vertices have already been included in the finite candidate bounds. A fixed root contributes exactly one possible image, and every denominator is a positive letter pool rather than a limiting vertex-type frequency. These are the features needed to apply the multiplicity argument of Appendix~\ref{app:bp} to the present distribution.
+
+\subsection{Bounded-path exclusion}
+
+Cone pictures will compare long portions of paths whose labels agree, possibly after reversing orientation. These paths may overlap or revisit edges, so a bound based only on independently exposed traversals would not apply. The relevant objects record occurrences and comparisons, but impose distinctness on the underlying edges in each compared pair.
+A path system is a family of positive-length graph paths, all closed and cyclically immersed except possibly one immersed interval starting at $r_A$ or $r_B$. A comparison matches two equal-length intervals of occurrences, either in order with equal letters or in reverse order with inverse letters. All compared occurrences are disjoint, and each matched pair must traverse distinct \emph{undirected} graph edges. Intervals in closed paths may be cyclic. Let $H$ be total traversal length and $b_0$ the number of unpaired occurrences.
+
+\begin{theorem}[Bounded-path estimate for the fixed-reservoir model]\label{thm:bp}
+With $\varepsilon$ fixed by \eqref{eq:epsilon}, for every fixed integer $K\ge1$, real $C\ge1$, and integer $I\ge0$, the $\Prob_L$-probability that there is a path system with at most $K$ paths, $L\le H\le CL$, at most $I$ comparisons, and $b_0\le\varepsilon H$, tends to zero as $m\to\infty$.
+\end{theorem}
+
+The proof is given in Appendix~\ref{app:bp}. It is the multiplicity-stage argument of \cite[Theorem~4.1, Lemmas~4.2--4.4]{OAI197a}, with Ivanov's prescribed colour data \cite[Section~6.1]{Iva26} and the image estimate \eqref{eq:image-estimate}. Repeated edge traversals are counted at multiplicity levels, never as independent matching prescriptions. The common approximate grid, projections of complete compatible assignments and minimum of stage first-moment bounds are inherited parts of that argument. Their details are included to make both the reduction to the present finite model and the order $\exists\varepsilon\,\forall K,C,I$ explicit.

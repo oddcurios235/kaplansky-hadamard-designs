@@ -1,0 +1,66 @@
+{
+  "paper": "Hadamard designs and incidence repair for Kaplansky's direct-finiteness problem",
+  "author": "Y. T. Miah",
+  "all_included_finite_checks_passed": true,
+  "test_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0"
+  },
+  "characteristic_three": {
+    "letters": 6654,
+    "alphabet_generators": 3327,
+    "nonzero_line_coefficients": 111,
+    "ordinary_residue_counts": [
+      2182,
+      2193,
+      2268
+    ],
+    "compact_root_degree": 93,
+    "minimum_degree": 82,
+    "maximum_degree": 325,
+    "core_N": 132388347,
+    "core_F": 1634178,
+    "reservoir_N": 39858,
+    "reservoir_F": 1464,
+    "candidate_additive_bound": 18417,
+    "turn_domination_m_threshold": 925
+  },
+  "affine_and_scale": {
+    "affine_error_bound": 896128,
+    "turn_error_bound": 18417,
+    "class_offsets": [
+      -471038,
+      39840,
+      39858
+    ],
+    "b_scale": 18,
+    "A": 4608,
+    "rho": "1681/1165293262656250000",
+    "diameter_coefficient": 3194331561165972635337,
+    "L_at_m_925": 0,
+    "minimum_log2_n_for_L_at_least_3": 13824,
+    "turn_domination_slack_at_925": "693/40",
+    "epsilon": "1/5312000",
+    "area_coefficient": "84992000/13"
+  },
+  "small_Hadamard_orders": [
+    20,
+    28,
+    44,
+    52,
+    68,
+    76
+  ],
+  "small_prime_alphabets": {
+    "5": 15770,
+    "7": 118020,
+    "11": 1772936,
+    "13": 4829058,
+    "17": 24142550,
+    "19": 47052816
+  },
+  "symbolic_obstruction": "Exact rational determinant; all 32 coefficients of P(u+3) positive.",
+  "asymptotic_checks": "Exact sample boundary checks of the proved Ghaderpour-parameter and Du-Jiang deductions, including Sylvester-doubling exponents.",
+  "scope": "Finite reconstruction and arithmetic only. No terminal matching, external large-Hadamard construction, external coverage rerun, group word-problem check, or formal proof-assistant build."
+}
