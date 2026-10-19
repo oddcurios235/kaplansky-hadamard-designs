@@ -2,6 +2,8 @@
 
 **Y. T. Miah** · Research preprint · 19 October 2026
 
+**Archived preprint:** [Zenodo DOI: 10.5281/zenodo.23485436](https://doi.org/10.5281/zenodo.23485436)
+
 [Read the manuscript (PDF)](main.pdf) · [LaTeX source](main.tex) · [Finite verification](supplement/README.md) · [Formalisation notes](FORMALIZATION.md)
 
 ## About
