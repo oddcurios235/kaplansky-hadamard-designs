@@ -51,7 +51,7 @@ If your TeX installation supplies `bibtex.original` instead of `bibtex`, use tha
 
 ## Citation, reuse and formalisation
 
-Please cite the manuscript as **Y. T. Miah, _Hadamard designs and incidence repair for Kaplansky’s direct-finiteness problem_ (2026)**. The included `CITATION.cff` has no DOI or arXiv identifier until one is assigned.
+Please cite the manuscript as **Y. T. Miah, _Hadamard designs and incidence repair for Kaplansky’s direct-finiteness problem_ (2026)**. The manuscript is archived on Zenodo with DOI: [10.5281/zenodo.23485436](https://doi.org/10.5281/zenodo.23485436). The accompanying `CITATION.cff` provides the citation metadata. No arXiv identifier has been assigned.
 
 Potential targets for independent Lean formalisation are listed in [FORMALIZATION.md](FORMALIZATION.md). There is currently **no Lean formalisation in this repository**.
 
